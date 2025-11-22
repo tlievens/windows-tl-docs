@@ -15,10 +15,10 @@
 <body class="bg-gray-900 dark:bg-gray-900 font-sans transition-colors duration-300">
 
   <!-- Navbar with Dark Mode Toggle -->
-  <nav class="flex justify-between items-center px-6 py-4 bg-gray-800 dark:bg-gray-800 shadow-md">
+  <nav class="flex justify-between items-center px-6 py-4 bg-gray-800 shadow-md">
     <h1 class="text-xl font-bold text-gray-100">tl docs</h1>
-    <button id="theme-toggle" class="bg-gray-700 text-gray-100 px-4 py-2 rounded">
-      Toggle Dark/Light
+    <button id="theme-toggle" class="text-gray-100 text-xl">
+      🌙
     </button>
   </nav>
 
@@ -81,8 +81,18 @@
   <!-- Dark Mode Toggle Script -->
   <script>
     const toggleButton = document.getElementById('theme-toggle');
+    const htmlElement = document.documentElement;
+
+    const updateToggleIcon = () => {
+      toggleButton.textContent = htmlElement.classList.contains('dark') ? '🌙' : '☀️';
+    }
+
+    // Initialize icon
+    updateToggleIcon();
+
     toggleButton.addEventListener('click', () => {
-      document.documentElement.classList.toggle('dark');
+      htmlElement.classList.toggle('dark');
+      updateToggleIcon();
     });
   </script>
 

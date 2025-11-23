@@ -1,73 +1,93 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>tl docs</title>
+
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
-      darkMode: 'class'
-    }
+      darkMode: "class"
+    };
   </script>
 </head>
+
 <body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 font-sans transition-colors duration-300">
 
-  <!-- Navbar with toggle switch -->
+  <!-- NAVBAR -->
   <nav class="flex justify-between items-center px-6 py-4 bg-white dark:bg-gray-800 shadow-md">
     <h1 class="text-xl font-bold text-gray-800 dark:text-gray-100">tl docs</h1>
 
-    <!-- Toggle Switch -->
-    <label for="theme-toggle" class="relative inline-flex items-center cursor-pointer">
-      <input type="checkbox" id="theme-toggle" class="sr-only peer">
-      <div class="w-12 h-6 bg-gray-300 dark:bg-gray-600 rounded-full peer-checked:bg-yellow-400 transition-colors"></div>
-      <div class="absolute left-0.5 top-0.5 w-5 h-5 bg-white rounded-full shadow-md peer-checked:translate-x-6 transition-transform"></div>
+    <!-- Sun/Moon Slider Toggle -->
+    <label for="theme-toggle" class="relative inline-block w-20 h-10 cursor-pointer select-none">
+      <input type="checkbox" id="theme-toggle" class="sr-only peer" />
+
+      <!-- Track -->
+      <div class="absolute inset-0 rounded-full bg-sky-300 dark:bg-gray-700 
+                  peer-checked:bg-gray-700 transition-colors duration-300"></div>
+
+      <!-- Icon -->
+      <div class="absolute top-0.5 left-0.5 w-9 h-9 rounded-full shadow-md overflow-hidden
+                  transition-all duration-300 peer-checked:translate-x-10">
+
+        <!-- Sun (light) -->
+        <img src="assets/sun.png" class="block w-full h-full object-cover dark:hidden" alt="Sun" />
+
+        <!-- Moon (dark) -->
+        <img src="assets/moon.png" class="hidden w-full h-full object-cover dark:block" alt="Moon" />
+      </div>
     </label>
   </nav>
 
-  <!-- Hero Section -->
-  <section class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 py-20 text-center transition-colors duration-300">
-    <h1 class="text-4xl md:text-5xl font-bold mb-4">tl docs</h1>
-    <!-- Subtitle removed -->
+  <!-- HERO -->
+  <section class="py-20 text-center">
+    <h1 class="text-5xl font-bold">tl docs</h1>
   </section>
 
-  <!-- Modules Section -->
-  <section class="max-w-6xl mx-auto px-4 py-16">
-    <h2 class="text-3xl font-bold mb-8 text-gray-800 dark:text-gray-100">Modules</h2>
-    
+  <!-- MODULES SECTION -->
+  <section class="max-w-6xl mx-auto px-4 pb-20">
+    <h2 class="text-3xl font-bold mb-8">Modules</h2>
+
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
-      <!-- Module 1 Card -->
-      <div class="bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 rounded-lg shadow-md overflow-hidden transition-colors duration-300">
-        <img class="w-full h-48 object-cover" src="assets/cpl.png" alt="Windows CPL + Control Commands">
+      <!-- MODULE 1 (UPDATED WITH CPL PNG) -->
+      <div class="bg-white dark:bg-gray-800 shadow rounded-lg overflow-hidden transition-colors duration-300">
+        <img src="assets/cpl.png" class="w-full h-48 object-cover" alt="Windows CPL + Control Commands" />
         <div class="p-6">
-          <h3 class="text-xl font-bold mb-2">Module 1</h3>
-          <p class="text-gray-700 dark:text-gray-300 mb-4">Start learning with Module 1.</p>
-          <a href="modules/module1.html" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded">
+          <h3 class="text-xl font-bold mb-2">Windows CPL + Control Commands</h3>
+          <p class="text-gray-700 dark:text-gray-300 mb-4">
+            Learn Windows Control Panel shortcuts, management tools, and power user commands.
+          </p>
+          <a href="modules/module1.html" 
+             class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">
             Start Learning
           </a>
         </div>
       </div>
 
-      <!-- Module 2 Card -->
-      <div class="bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 rounded-lg shadow-md overflow-hidden transition-colors duration-300">
-        <img class="w-full h-48 object-cover" src="assets/placeholder.png" alt="Module 2">
+      <!-- MODULE 2 -->
+      <div class="bg-white dark:bg-gray-800 shadow rounded-lg overflow-hidden transition-colors duration-300">
+        <img src="assets/placeholder.png" class="w-full h-48 object-cover" alt="Module 2" />
         <div class="p-6">
           <h3 class="text-xl font-bold mb-2">Module 2</h3>
           <p class="text-gray-700 dark:text-gray-300 mb-4">Start learning with Module 2.</p>
-          <a href="modules/module2.html" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded">
+          <a href="modules/module2.html" 
+             class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">
             Start Learning
           </a>
         </div>
       </div>
 
-      <!-- Module 3 Card -->
-      <div class="bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 rounded-lg shadow-md overflow-hidden transition-colors duration-300">
-        <img class="w-full h-48 object-cover" src="assets/placeholder.png" alt="Module 3">
+      <!-- MODULE 3 -->
+      <div class="bg-white dark:bg-gray-800 shadow rounded-lg overflow-hidden transition-colors duration-300">
+        <img src="assets/placeholder.png" class="w-full h-48 object-cover" alt="Module 3" />
         <div class="p-6">
           <h3 class="text-xl font-bold mb-2">Module 3</h3>
           <p class="text-gray-700 dark:text-gray-300 mb-4">Start learning with Module 3.</p>
-          <a href="modules/module3.html" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded">
+          <a href="modules/module3.html" 
+             class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">
             Start Learning
           </a>
         </div>
@@ -76,21 +96,21 @@
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-100 py-6 text-center transition-colors duration-300">
-    &copy; 2025 tl docs. Built with Tailwind CSS.
+  <!-- FOOTER -->
+  <footer class="bg-gray-200 dark:bg-gray-800 text-center py-6">
+    © 2025 tl docs
   </footer>
 
-  <!-- Toggle Switch Script -->
+  <!-- THEME TOGGLE LOGIC -->
   <script>
-    const toggleSwitch = document.getElementById('theme-toggle');
+    const toggleSwitch = document.getElementById("theme-toggle");
     const htmlEl = document.documentElement;
 
-    // Initialize checkbox based on current theme
-    toggleSwitch.checked = htmlEl.classList.contains('dark');
+    // Sync toggle state with current theme
+    toggleSwitch.checked = htmlEl.classList.contains("dark");
 
-    toggleSwitch.addEventListener('change', () => {
-      htmlEl.classList.toggle('dark');
+    toggleSwitch.addEventListener("change", () => {
+      htmlEl.classList.toggle("dark");
     });
   </script>
 

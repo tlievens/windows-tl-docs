@@ -6,44 +6,40 @@
   <title>tl docs</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
+    // Enable dark mode class strategy
     tailwind.config = {
       darkMode: 'class'
     }
   </script>
 </head>
-<body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 font-sans transition-colors duration-300">
+<body class="bg-gray-900 dark:bg-gray-900 font-sans transition-colors duration-300">
 
-  <!-- Navbar with toggle switch -->
-  <nav class="flex justify-between items-center px-6 py-4 bg-white dark:bg-gray-800 shadow-md">
-    <h1 class="text-xl font-bold text-gray-800 dark:text-gray-100">tl docs</h1>
-
-    <!-- Toggle Switch -->
-    <label for="theme-toggle" class="relative inline-block w-16 h-8 cursor-pointer">
-      <input type="checkbox" id="theme-toggle" class="sr-only peer">
-      <div class="absolute inset-0 bg-gray-300 dark:bg-gray-700 rounded-full transition-colors peer-checked:bg-blue-800"></div>
-      <img src="/mnt/data/9d5c9411-187a-4855-9cf6-e2486a447815.png"
-        class="absolute top-0.5 left-0.5 w-7 h-7 transition-all peer-checked:translate-x-8" alt="theme icon">
-    </label>
+  <!-- Navbar with Dark Mode Toggle -->
+  <nav class="flex justify-between items-center px-6 py-4 bg-gray-800 shadow-md">
+    <h1 class="text-xl font-bold text-gray-100">tl docs</h1>
+    <button id="theme-toggle" class="text-gray-100 text-xl">
+      🌙
+    </button>
   </nav>
 
   <!-- Hero Section -->
-  <section class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 py-20 text-center transition-colors duration-300">
+  <section class="bg-gray-900 text-white py-20 text-center transition-colors duration-300">
     <h1 class="text-4xl md:text-5xl font-bold mb-4">tl docs</h1>
     <!-- Subtitle removed -->
   </section>
 
   <!-- Modules Section -->
   <section class="max-w-6xl mx-auto px-4 py-16">
-    <h2 class="text-3xl font-bold mb-8 text-gray-800 dark:text-gray-100">Modules</h2>
+    <h2 class="text-3xl font-bold mb-8 text-gray-100">Modules</h2>
     
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
       <!-- Module 1 Card -->
-      <div class="bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 rounded-lg shadow-md overflow-hidden transition-colors duration-300">
+      <div class="bg-gray-800 rounded-lg shadow-md overflow-hidden transition-colors duration-300">
         <img class="w-full h-48 object-cover" src="assets/placeholder.png" alt="Module 1">
         <div class="p-6">
-          <h3 class="text-xl font-bold mb-2">Module 1</h3>
-          <p class="text-gray-700 dark:text-gray-300 mb-4">Start learning with Module 1.</p>
+          <h3 class="text-xl font-bold mb-2 text-gray-100">Module 1</h3>
+          <p class="text-gray-300 mb-4">Start learning with Module 1.</p>
           <a href="modules/module1.html" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded">
             Start Learning
           </a>
@@ -51,11 +47,11 @@
       </div>
 
       <!-- Module 2 Card -->
-      <div class="bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 rounded-lg shadow-md overflow-hidden transition-colors duration-300">
+      <div class="bg-gray-800 rounded-lg shadow-md overflow-hidden transition-colors duration-300">
         <img class="w-full h-48 object-cover" src="assets/placeholder.png" alt="Module 2">
         <div class="p-6">
-          <h3 class="text-xl font-bold mb-2">Module 2</h3>
-          <p class="text-gray-700 dark:text-gray-300 mb-4">Start learning with Module 2.</p>
+          <h3 class="text-xl font-bold mb-2 text-gray-100">Module 2</h3>
+          <p class="text-gray-300 mb-4">Start learning with Module 2.</p>
           <a href="modules/module2.html" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded">
             Start Learning
           </a>
@@ -63,11 +59,11 @@
       </div>
 
       <!-- Module 3 Card -->
-      <div class="bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 rounded-lg shadow-md overflow-hidden transition-colors duration-300">
+      <div class="bg-gray-800 rounded-lg shadow-md overflow-hidden transition-colors duration-300">
         <img class="w-full h-48 object-cover" src="assets/placeholder.png" alt="Module 3">
         <div class="p-6">
-          <h3 class="text-xl font-bold mb-2">Module 3</h3>
-          <p class="text-gray-700 dark:text-gray-300 mb-4">Start learning with Module 3.</p>
+          <h3 class="text-xl font-bold mb-2 text-gray-100">Module 3</h3>
+          <p class="text-gray-300 mb-4">Start learning with Module 3.</p>
           <a href="modules/module3.html" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded">
             Start Learning
           </a>
@@ -78,21 +74,26 @@
   </section>
 
   <!-- Footer -->
-  <footer class="bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-100 py-6 text-center transition-colors duration-300">
+  <footer class="bg-gray-800 dark:bg-gray-900 text-white py-6 text-center">
     &copy; 2025 tl docs. Built with Tailwind CSS.
   </footer>
 
-  <!-- Toggle Switch Script -->
+  <!-- Dark Mode Toggle Script -->
   <script>
-  const toggleSwitch = document.getElementById('theme-toggle');
-  const htmlEl = document.documentElement;
-  
-  // Initialize based on default dark mode
-  toggleSwitch.checked = htmlEl.classList.contains('dark');
-  
-  toggleSwitch.addEventListener('change', () => {
-    htmlEl.classList.toggle('dark');
-  });
+    const toggleButton = document.getElementById('theme-toggle');
+    const htmlElement = document.documentElement;
+
+    const updateToggleIcon = () => {
+      toggleButton.textContent = htmlElement.classList.contains('dark') ? '🌙' : '☀️';
+    }
+
+    // Initialize icon
+    updateToggleIcon();
+
+    toggleButton.addEventListener('click', () => {
+      htmlElement.classList.toggle('dark');
+      updateToggleIcon();
+    });
   </script>
 
 </body>

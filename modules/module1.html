@@ -9,112 +9,205 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
-      darkMode: "class"
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            winblue: {
+              light: "#2563eb",
+              DEFAULT: "#2563eb",
+              accent: "#0A84FF"
+            }
+          }
+        }
+      }
     };
   </script>
 </head>
 
-<body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 font-sans">
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 font-sans antialiased">
 
   <!-- NAVBAR -->
-  <nav class="flex justify-between items-center px-6 py-4 bg-white dark:bg-gray-800 shadow-md">
-    <a href="../index.html" class="text-xl font-bold text-gray-800 dark:text-gray-100">
-      tl docs
+  <nav class="flex justify-between items-center px-6 py-4 bg-white/80 dark:bg-gray-900/80 backdrop-blur shadow-sm border-b border-gray-200/80 dark:border-gray-800/80">
+    <a href="../index.html" class="flex items-center gap-2 group">
+      <span class="inline-flex h-8 w-8 items-center justify-center rounded-2xl bg-gradient-to-tr from-winblue-light to-winblue-accent text-white text-xl shadow-sm">
+        🪟
+      </span>
+      <div class="flex flex-col leading-tight">
+        <span class="text-sm sm:text-base font-semibold group-hover:underline underline-offset-2">
+          tl docs
+        </span>
+        <span class="text-[0.7rem] text-gray-500 dark:text-gray-400">
+          Helpful Windows Documentation
+        </span>
+      </div>
     </a>
 
-    <!-- Sun/Moon Slider Toggle (no animations) -->
+    <!-- Sun/Moon Slider Toggle -->
     <label for="theme-toggle" class="relative inline-block w-20 h-10 cursor-pointer select-none">
       <input type="checkbox" id="theme-toggle" class="sr-only peer" />
 
       <!-- Track -->
-      <div class="absolute inset-0 rounded-full bg-sky-300 dark:bg-gray-700 peer-checked:bg-gray-700"></div>
+      <div class="absolute inset-0 rounded-full bg-sky-200/70 dark:bg-gray-700 peer-checked:bg-gray-700 transition-colors duration-300"></div>
 
-      <!-- Icon -->
-      <div class="absolute top-0.5 left-0.5 w-9 h-9 rounded-full shadow-md overflow-hidden peer-checked:translate-x-10">
-        <!-- Sun (light) -->
-        <img src="../assets/sun.png" class="block w-full h-full object-cover dark:hidden" alt="Sun" />
-        <!-- Moon (dark) -->
-        <img src="../assets/moon.png" class="hidden w-full h-full object-cover dark:block" alt="Moon" />
+      <!-- Thumb -->
+      <div
+        class="absolute top-0.5 left-0.5 w-9 h-9 rounded-full shadow-md overflow-hidden
+               bg-white dark:bg-gray-900 flex items-center justify-center
+               text-yellow-400 dark:text-sky-300
+               transition-all duration-300 peer-checked:translate-x-10"
+      >
+        <span class="block dark:hidden text-xl">☀️</span>
+        <span class="hidden dark:block text-xl">🌙</span>
       </div>
     </label>
   </nav>
 
-  <!-- HERO -->
-  <section class="py-10 border-b border-gray-200 dark:border-gray-800 text-center">
-    <h1 class="text-3xl md:text-4xl font-bold mb-2">
-      🪟 Windows CPL + Control Commands
-    </h1>
-    <p class="text-gray-600 dark:text-gray-300 text-sm md:text-base">
-      Quickly launch classic Control Panel applets & related tools ⚙️
-    </p>
-  </section>
+  <!-- HERO / MODULE HEADER -->
+  <header class="border-b border-gray-200 dark:border-gray-800">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 space-y-4">
+      <!-- Gradient module header box -->
+      <div
+        class="rounded-3xl border border-sky-200/70 dark:border-sky-900/80 shadow-sm
+               bg-gradient-to-r from-winblue-light/90 to-winblue-accent/90
+               dark:from-sky-700/95 dark:to-sky-900/95
+               text-white px-4 sm:px-6 py-4 sm:py-5 flex flex-col md:flex-row items-start md:items-center justify-between gap-4"
+      >
+        <div class="flex items-start gap-3 sm:gap-4">
+          <div
+            class="hidden sm:flex h-12 w-12 items-center justify-center rounded-2xl bg-white/15 border border-white/25 shadow-md text-2xl"
+          >
+            ⚙️
+          </div>
+          <div class="space-y-1">
+            <h1 class="text-xl sm:text-2xl font-semibold">
+              Windows CPL + Control Commands
+            </h1>
+            <p class="text-xs sm:text-sm text-blue-50/90 max-w-2xl">
+              Searchable and filterable list of classic CPL commands, MEMCM/WMI helpers, and more.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap items-end gap-2 sm:gap-3 text-xs sm:text-sm">
+          <div class="inline-flex items-center gap-1.5 rounded-full bg-black/15 px-3 py-1 border border-white/20">
+            <span>🪟</span>
+            <span class="uppercase tracking-wide font-semibold">Module 1</span>
+          </div>
+          <div class="inline-flex items-center gap-1.5 rounded-full bg-black/15 px-3 py-1 border border-white/20">
+            <span class="h-2 w-2 rounded-full bg-emerald-300 shadow-sm"></span>
+            <span>Run / Win+R friendly</span>
+          </div>
+        </div>
+      </div>
+
+      <p class="text-sm md:text-base text-gray-600 dark:text-gray-300">
+        This module collects commonly used
+        <code class="font-mono text-xs px-1.5 py-0.5 rounded bg-gray-100/80 dark:bg-gray-800/80 border border-gray-200 dark:border-gray-700">
+          *.cpl
+        </code>
+        (Control Panel) commands and a few related MEMCM / WMI / debug tools. Use the search box and filters
+        to quickly find what you need, then click <strong>Copy</strong> to grab the command. 💡
+      </p>
+    </div>
+  </header>
 
   <!-- MAIN LAYOUT -->
-  <main class="max-w-6xl mx-auto px-4 py-8 flex flex-col md:flex-row gap-8">
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 flex flex-col md:flex-row gap-8">
 
-    <!-- SIDEBAR -->
-    <aside class="md:w-64 bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 h-max">
-      <h2 class="text-lg font-semibold mb-3 flex items-center gap-2">
-        📚 Navigation
-      </h2>
-      <nav class="space-y-2 text-sm">
-        <a href="#overview" class="block px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-700">
-          🔍 Overview
-        </a>
-        <a href="#cpl-list" class="block px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-700">
-          ⚙️ CPL Commands
-        </a>
-        <a href="#sccm-wmi" class="block px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-700">
-          🧪 SCCM / WMI / Debug
-        </a>
-        <a href="../index.html" class="block px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-700">
-          ⬅️ Back to Home
-        </a>
-      </nav>
+    <!-- SIDEBAR (Fluent-styled) -->
+    <aside class="md:w-64 shrink-0">
+      <div class="bg-white/80 dark:bg-gray-900/80 border border-gray-200/80 dark:border-gray-800/80 rounded-2xl shadow-sm p-4 space-y-4">
+        <div class="space-y-1">
+          <h2 class="text-sm font-semibold flex items-center gap-2">
+            <span>📚</span>
+            <span>Navigation</span>
+          </h2>
+          <p class="text-[0.7rem] text-gray-500 dark:text-gray-400">
+            Jump between sections or go back to the launcher.
+          </p>
+        </div>
+
+        <nav class="space-y-1 text-sm">
+          <a href="#overview" class="block px-3 py-2 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800">
+            🔍 Overview
+          </a>
+          <a href="#cpl-list" class="block px-3 py-2 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800">
+            ⚙️ CPL Commands
+          </a>
+          <a href="#sccm-wmi" class="block px-3 py-2 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800">
+            🧪 MEMCM / WMI / Debug
+          </a>
+          <a href="../index.html" class="block px-3 py-2 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800">
+            ⬅️ Back to Home
+          </a>
+        </nav>
+
+        <div class="pt-2 border-t border-gray-100 dark:border-gray-800 text-[0.7rem] text-gray-500 dark:text-gray-400 space-y-1">
+          <div class="flex flex-wrap gap-1.5">
+            <span class="inline-flex items-center gap-1 rounded-full bg-sky-100 text-sky-800 dark:bg-sky-900/60 dark:text-sky-100 px-2 py-0.5">
+              <span>⚡</span><span>Run box</span>
+            </span>
+            <span class="inline-flex items-center gap-1 rounded-full bg-emerald-100 text-emerald-800 dark:bg-emerald-900/60 dark:text-emerald-100 px-2 py-0.5">
+              <span>🛠️</span><span>Power user</span>
+            </span>
+          </div>
+          <p>
+            Tip: many of these work via <code class="font-mono">Win + R</code> or a command prompt.
+          </p>
+        </div>
+      </div>
     </aside>
 
     <!-- CONTENT -->
     <section class="flex-1 space-y-8">
 
-      <!-- OVERVIEW -->
-      <section id="overview" class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-5">
-        <h2 class="text-xl font-semibold mb-3 flex items-center gap-2">
-          🔍 Overview
+      <!-- OVERVIEW (kept compact) -->
+      <section id="overview" class="bg-white/80 dark:bg-gray-900/80 border border-gray-200/80 dark:border-gray-800/80 rounded-2xl shadow-sm p-5 space-y-2">
+        <h2 class="text-lg font-semibold flex items-center gap-2">
+          <span>🔍</span>
+          <span>Overview</span>
         </h2>
-        <p class="text-sm md:text-base text-gray-700 dark:text-gray-300 mb-2">
-          This module collects commonly used <code class="font-mono">*.cpl</code> (Control Panel)
-          commands and a few related SCCM / WMI / debug tools. Use the search box and filters
-          to quickly find what you need, then click <strong>Copy</strong> to grab the command. 💡
+        <p class="text-sm md:text-base text-gray-700 dark:text-gray-300">
+          Use the filters below to quickly locate the Control Panel applet or helper tool you need.
+          Commands are grouped into categories with small Fluent-style pills and emoji to make scanning
+          a little more pleasant.
         </p>
       </section>
 
       <!-- CPL COMMANDS LIST -->
-      <section id="cpl-list" class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-5">
-        <h2 class="text-xl font-semibold mb-4 flex items-center gap-2">
-          ⚙️ CPL Commands
-        </h2>
+      <section id="cpl-list" class="bg-white/80 dark:bg-gray-900/80 border border-gray-200/80 dark:border-gray-800/80 rounded-2xl shadow-sm p-5 space-y-4">
+        <div class="flex items-center justify-between gap-2 flex-wrap">
+          <h2 class="text-lg font-semibold flex items-center gap-2">
+            <span>⚙️</span>
+            <span>CPL Commands</span>
+          </h2>
+          <span class="text-[0.7rem] text-gray-500 dark:text-gray-400">
+            Searchable and filterable list of classic CPL commands, MEMCM/WMI helpers, and more.
+          </span>
+        </div>
 
         <!-- Filters -->
-        <div class="flex flex-col sm:flex-row gap-4 mb-4">
+        <div class="flex flex-col sm:flex-row gap-4">
           <div class="flex-1">
-            <label for="search" class="block text-xs font-semibold mb-1">
+            <label for="search" class="block text-xs font-semibold mb-1 text-gray-700 dark:text-gray-300">
               Search commands / descriptions
             </label>
             <input
               id="search"
               type="text"
               placeholder="🔎 e.g. network, sound, firewall..."
-              class="w-full px-3 py-2 rounded border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 text-sm"
+              class="w-full px-3 py-2 rounded-xl border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-winblue-light focus:border-transparent"
             />
           </div>
 
-          <div class="w-full sm:w-52">
-            <label for="categoryFilter" class="block text-xs font-semibold mb-1">
+          <div class="w-full sm:w-56">
+            <label for="categoryFilter" class="block text-xs font-semibold mb-1 text-gray-700 dark:text-gray-300">
               Category
             </label>
             <select
               id="categoryFilter"
-              class="w-full px-3 py-2 rounded border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 text-sm"
+              class="w-full px-3 py-2 rounded-xl border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-winblue-light focus:border-transparent"
             >
               <option value="all">📂 All Categories</option>
               <option value="System">🖥️ System</option>
@@ -123,7 +216,7 @@
               <option value="Hardware">🧩 Hardware</option>
               <option value="Audio/Video">🎧 Audio / Video</option>
               <option value="Region/Language">🌎 Region / Language</option>
-              <option value="SCCM">📦 SCCM</option>
+              <option value="SCCM">📦 MEMCM</option>
               <option value="WMI/Debug">🧪 WMI / Debug</option>
               <option value="Other">📁 Other</option>
             </select>
@@ -133,21 +226,20 @@
         <!-- Command Rows -->
         <div id="commandsList" class="space-y-3 text-sm">
 
-          <!-- Each row: command-row -->
           <!-- appwiz.cpl -->
           <div
-            class="command-row bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
+            class="command-row bg-gray-50/90 dark:bg-gray-900/80 border border-gray-200 dark:border-gray-700 rounded-2xl p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
             data-command="appwiz.cpl"
             data-description="Programs and Features (Add/Remove Programs)"
             data-category="System"
           >
             <div>
-              <div class="flex items-center gap-2">
-                <span class="font-mono text-xs px-2 py-1 rounded bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="font-mono text-xs px-2 py-1 rounded-xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
                   appwiz.cpl
                 </span>
-                <span class="text-[0.65rem] px-2 py-1 rounded-full bg-blue-100 text-blue-800 dark:bg-blue-900/40 dark:text-blue-200">
-                  🖥️ System
+                <span class="inline-flex items-center gap-1 text-[0.7rem] px-2 py-1 rounded-full bg-blue-100 text-blue-800 dark:bg-blue-900/50 dark:text-blue-100">
+                  <span>🖥️</span><span>System</span>
                 </span>
               </div>
               <p class="mt-1 text-gray-700 dark:text-gray-300">
@@ -155,10 +247,10 @@
               </p>
             </div>
             <div class="flex items-center gap-2">
-              <button class="copy-btn px-3 py-1 rounded bg-gray-800 text-white dark:bg-gray-100 dark:text-gray-900 text-xs">
+              <button class="copy-btn px-3 py-1.5 rounded-xl bg-gray-900 text-white dark:bg-gray-100 dark:text-gray-900 text-xs shadow-sm hover:bg-gray-700 dark:hover:bg-white">
                 Copy
               </button>
-              <span class="copy-tooltip text-xs text-green-500 hidden">
+              <span class="copy-tooltip text-xs text-emerald-500 hidden">
                 Copied!
               </span>
             </div>
@@ -166,18 +258,18 @@
 
           <!-- desk.cpl -->
           <div
-            class="command-row bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
+            class="command-row bg-gray-50/90 dark:bg-gray-900/80 border border-gray-200 dark:border-gray-700 rounded-2xl p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
             data-command="desk.cpl"
             data-description="Display settings"
             data-category="System"
           >
             <div>
-              <div class="flex items-center gap-2">
-                <span class="font-mono text-xs px-2 py-1 rounded bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="font-mono text-xs px-2 py-1 rounded-xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
                   desk.cpl
                 </span>
-                <span class="text-[0.65rem] px-2 py-1 rounded-full bg-blue-100 text-blue-800 dark:bg-blue-900/40 dark:text-blue-200">
-                  🖥️ System
+                <span class="inline-flex items-center gap-1 text-[0.7rem] px-2 py-1 rounded-full bg-blue-100 text-blue-800 dark:bg-blue-900/50 dark:text-blue-100">
+                  <span>🖥️</span><span>System</span>
                 </span>
               </div>
               <p class="mt-1 text-gray-700 dark:text-gray-300">
@@ -185,27 +277,27 @@
               </p>
             </div>
             <div class="flex items-center gap-2">
-              <button class="copy-btn px-3 py-1 rounded bg-gray-800 text-white dark:bg-gray-100 dark:text-gray-900 text-xs">
+              <button class="copy-btn px-3 py-1.5 rounded-xl bg-gray-900 text-white dark:bg-gray-100 dark:text-gray-900 text-xs shadow-sm hover:bg-gray-700 dark:hover:bg-white">
                 Copy
               </button>
-              <span class="copy-tooltip text-xs text-green-500 hidden">Copied!</span>
+              <span class="copy-tooltip text-xs text-emerald-500 hidden">Copied!</span>
             </div>
           </div>
 
           <!-- firewall.cpl -->
           <div
-            class="command-row bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
+            class="command-row bg-gray-50/90 dark:bg-gray-900/80 border border-gray-200 dark:border-gray-700 rounded-2xl p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
             data-command="firewall.cpl"
             data-description="Windows Defender Firewall settings"
             data-category="Security"
           >
             <div>
-              <div class="flex items-center gap-2">
-                <span class="font-mono text-xs px-2 py-1 rounded bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="font-mono text-xs px-2 py-1 rounded-xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
                   firewall.cpl
                 </span>
-                <span class="text-[0.65rem] px-2 py-1 rounded-full bg-red-100 text-red-800 dark:bg-red-900/40 dark:text-red-200">
-                  🛡️ Security
+                <span class="inline-flex items-center gap-1 text-[0.7rem] px-2 py-1 rounded-full bg-red-100 text-red-800 dark:bg-red-900/50 dark:text-red-100">
+                  <span>🛡️</span><span>Security</span>
                 </span>
               </div>
               <p class="mt-1 text-gray-700 dark:text-gray-300">
@@ -213,27 +305,27 @@
               </p>
             </div>
             <div class="flex items-center gap-2">
-              <button class="copy-btn px-3 py-1 rounded bg-gray-800 text-white dark:bg-gray-100 dark:text-gray-900 text-xs">
+              <button class="copy-btn px-3 py-1.5 rounded-xl bg-gray-900 text-white dark:bg-gray-100 dark:text-gray-900 text-xs shadow-sm hover:bg-gray-700 dark:hover:bg-white">
                 Copy
               </button>
-              <span class="copy-tooltip text-xs text-green-500 hidden">Copied!</span>
+              <span class="copy-tooltip text-xs text-emerald-500 hidden">Copied!</span>
             </div>
           </div>
 
           <!-- inetcpl.cpl -->
           <div
-            class="command-row bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
+            class="command-row bg-gray-50/90 dark:bg-gray-900/80 border border-gray-200 dark:border-gray-700 rounded-2xl p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
             data-command="inetcpl.cpl"
             data-description="Internet Options"
             data-category="Networking"
           >
             <div>
-              <div class="flex items-center gap-2">
-                <span class="font-mono text-xs px-2 py-1 rounded bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="font-mono text-xs px-2 py-1 rounded-xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
                   inetcpl.cpl
                 </span>
-                <span class="text-[0.65rem] px-2 py-1 rounded-full bg-green-100 text-green-800 dark:bg-green-900/40 dark:text-green-200">
-                  🌐 Networking
+                <span class="inline-flex items-center gap-1 text-[0.7rem] px-2 py-1 rounded-full bg-green-100 text-green-800 dark:bg-green-900/50 dark:text-green-100">
+                  <span>🌐</span><span>Networking</span>
                 </span>
               </div>
               <p class="mt-1 text-gray-700 dark:text-gray-300">
@@ -241,27 +333,27 @@
               </p>
             </div>
             <div class="flex items-center gap-2">
-              <button class="copy-btn px-3 py-1 rounded bg-gray-800 text-white dark:bg-gray-100 dark:text-gray-900 text-xs">
+              <button class="copy-btn px-3 py-1.5 rounded-xl bg-gray-900 text-white dark:bg-gray-100 dark:text-gray-900 text-xs shadow-sm hover:bg-gray-700 dark:hover:bg-white">
                 Copy
               </button>
-              <span class="copy-tooltip text-xs text-green-500 hidden">Copied!</span>
+              <span class="copy-tooltip text-xs text-emerald-500 hidden">Copied!</span>
             </div>
           </div>
 
           <!-- intl.cpl -->
           <div
-            class="command-row bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
+            class="command-row bg-gray-50/90 dark:bg-gray-900/80 border border-gray-200 dark:border-gray-700 rounded-2xl p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
             data-command="intl.cpl"
             data-description="Region and language settings"
             data-category="Region/Language"
           >
             <div>
-              <div class="flex items-center gap-2">
-                <span class="font-mono text-xs px-2 py-1 rounded bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="font-mono text-xs px-2 py-1 rounded-xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
                   intl.cpl
                 </span>
-                <span class="text-[0.65rem] px-2 py-1 rounded-full bg-purple-100 text-purple-800 dark:bg-purple-900/40 dark:text-purple-200">
-                  🌎 Region / Language
+                <span class="inline-flex items-center gap-1 text-[0.7rem] px-2 py-1 rounded-full bg-purple-100 text-purple-800 dark:bg-purple-900/50 dark:text-purple-100">
+                  <span>🌎</span><span>Region / Language</span>
                 </span>
               </div>
               <p class="mt-1 text-gray-700 dark:text-gray-300">
@@ -269,27 +361,27 @@
               </p>
             </div>
             <div class="flex items-center gap-2">
-              <button class="copy-btn px-3 py-1 rounded bg-gray-800 text-white dark:bg-gray-100 dark:text-gray-900 text-xs">
+              <button class="copy-btn px-3 py-1.5 rounded-xl bg-gray-900 text-white dark:bg-gray-100 dark:text-gray-900 text-xs shadow-sm hover:bg-gray-700 dark:hover:bg-white">
                 Copy
               </button>
-              <span class="copy-tooltip text-xs text-green-500 hidden">Copied!</span>
+              <span class="copy-tooltip text-xs text-emerald-500 hidden">Copied!</span>
             </div>
           </div>
 
           <!-- joy.cpl -->
           <div
-            class="command-row bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
+            class="command-row bg-gray-50/90 dark:bg-gray-900/80 border border-gray-200 dark:border-gray-700 rounded-2xl p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
             data-command="joy.cpl"
             data-description="Game controllers"
             data-category="Hardware"
           >
             <div>
-              <div class="flex items-center gap-2">
-                <span class="font-mono text-xs px-2 py-1 rounded bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="font-mono text-xs px-2 py-1 rounded-xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
                   joy.cpl
                 </span>
-                <span class="text-[0.65rem] px-2 py-1 rounded-full bg-orange-100 text-orange-800 dark:bg-orange-900/40 dark:text-orange-200">
-                  🧩 Hardware
+                <span class="inline-flex items-center gap-1 text-[0.7rem] px-2 py-1 rounded-full bg-orange-100 text-orange-800 dark:bg-orange-900/50 dark:text-orange-100">
+                  <span>🧩</span><span>Hardware</span>
                 </span>
               </div>
               <p class="mt-1 text-gray-700 dark:text-gray-300">
@@ -297,27 +389,27 @@
               </p>
             </div>
             <div class="flex items-center gap-2">
-              <button class="copy-btn px-3 py-1 rounded bg-gray-800 text-white dark:bg-gray-100 dark:text-gray-900 text-xs">
+              <button class="copy-btn px-3 py-1.5 rounded-xl bg-gray-900 text-white dark:bg-gray-100 dark:text-gray-900 text-xs shadow-sm hover:bg-gray-700 dark:hover:bg-white">
                 Copy
               </button>
-              <span class="copy-tooltip text-xs text-green-500 hidden">Copied!</span>
+              <span class="copy-tooltip text-xs text-emerald-500 hidden">Copied!</span>
             </div>
           </div>
 
           <!-- main.cpl (Mouse) -->
           <div
-            class="command-row bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
+            class="command-row bg-gray-50/90 dark:bg-gray-900/80 border border-gray-200 dark:border-gray-700 rounded-2xl p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
             data-command="main.cpl"
             data-description="Mouse properties"
             data-category="Hardware"
           >
             <div>
-              <div class="flex items-center gap-2">
-                <span class="font-mono text-xs px-2 py-1 rounded bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="font-mono text-xs px-2 py-1 rounded-xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
                   main.cpl
                 </span>
-                <span class="text-[0.65rem] px-2 py-1 rounded-full bg-orange-100 text-orange-800 dark:bg-orange-900/40 dark:text-orange-200">
-                  🧩 Hardware
+                <span class="inline-flex items-center gap-1 text-[0.7rem] px-2 py-1 rounded-full bg-orange-100 text-orange-800 dark:bg-orange-900/50 dark:text-orange-100">
+                  <span>🧩</span><span>Hardware</span>
                 </span>
               </div>
               <p class="mt-1 text-gray-700 dark:text-gray-300">
@@ -325,27 +417,27 @@
               </p>
             </div>
             <div class="flex items-center gap-2">
-              <button class="copy-btn px-3 py-1 rounded bg-gray-800 text-white dark:bg-gray-100 dark:text-gray-900 text-xs">
+              <button class="copy-btn px-3 py-1.5 rounded-xl bg-gray-900 text-white dark:bg-gray-100 dark:text-gray-900 text-xs shadow-sm hover:bg-gray-700 dark:hover:bg-white">
                 Copy
               </button>
-              <span class="copy-tooltip text-xs text-green-500 hidden">Copied!</span>
+              <span class="copy-tooltip text-xs text-emerald-500 hidden">Copied!</span>
             </div>
           </div>
 
           <!-- mmsys.cpl (Sound) -->
           <div
-            class="command-row bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
+            class="command-row bg-gray-50/90 dark:bg-gray-900/80 border border-gray-200 dark:border-gray-700 rounded-2xl p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
             data-command="mmsys.cpl"
             data-description="Sound settings"
             data-category="Audio/Video"
           >
             <div>
-              <div class="flex items-center gap-2">
-                <span class="font-mono text-xs px-2 py-1 rounded bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="font-mono text-xs px-2 py-1 rounded-xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
                   mmsys.cpl
                 </span>
-                <span class="text-[0.65rem] px-2 py-1 rounded-full bg-pink-100 text-pink-800 dark:bg-pink-900/40 dark:text-pink-200">
-                  🎧 Audio / Video
+                <span class="inline-flex items-center gap-1 text-[0.7rem] px-2 py-1 rounded-full bg-pink-100 text-pink-800 dark:bg-pink-900/50 dark:text-pink-100">
+                  <span>🎧</span><span>Audio / Video</span>
                 </span>
               </div>
               <p class="mt-1 text-gray-700 dark:text-gray-300">
@@ -353,27 +445,27 @@
               </p>
             </div>
             <div class="flex items-center gap-2">
-              <button class="copy-btn px-3 py-1 rounded bg-gray-800 text-white dark:bg-gray-100 dark:text-gray-900 text-xs">
+              <button class="copy-btn px-3 py-1.5 rounded-xl bg-gray-900 text-white dark:bg-gray-100 dark:text-gray-900 text-xs shadow-sm hover:bg-gray-700 dark:hover:bg-white">
                 Copy
               </button>
-              <span class="copy-tooltip text-xs text-green-500 hidden">Copied!</span>
+              <span class="copy-tooltip text-xs text-emerald-500 hidden">Copied!</span>
             </div>
           </div>
 
           <!-- ncpa.cpl -->
           <div
-            class="command-row bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
+            class="command-row bg-gray-50/90 dark:bg-gray-900/80 border border-gray-200 dark:border-gray-700 rounded-2xl p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
             data-command="ncpa.cpl"
             data-description="Network Connections"
             data-category="Networking"
           >
             <div>
-              <div class="flex items-center gap-2">
-                <span class="font-mono text-xs px-2 py-1 rounded bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="font-mono text-xs px-2 py-1 rounded-xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
                   ncpa.cpl
                 </span>
-                <span class="text-[0.65rem] px-2 py-1 rounded-full bg-green-100 text-green-800 dark:bg-green-900/40 dark:text-green-200">
-                  🌐 Networking
+                <span class="inline-flex items-center gap-1 text-[0.7rem] px-2 py-1 rounded-full bg-green-100 text-green-800 dark:bg-green-900/50 dark:text-green-100">
+                  <span>🌐</span><span>Networking</span>
                 </span>
               </div>
               <p class="mt-1 text-gray-700 dark:text-gray-300">
@@ -381,27 +473,27 @@
               </p>
             </div>
             <div class="flex items-center gap-2">
-              <button class="copy-btn px-3 py-1 rounded bg-gray-800 text-white dark:bg-gray-100 dark:text-gray-900 text-xs">
+              <button class="copy-btn px-3 py-1.5 rounded-xl bg-gray-900 text-white dark:bg-gray-100 dark:text-gray-900 text-xs shadow-sm hover:bg-gray-700 dark:hover:bg-white">
                 Copy
               </button>
-              <span class="copy-tooltip text-xs text-green-500 hidden">Copied!</span>
+              <span class="copy-tooltip text-xs text-emerald-500 hidden">Copied!</span>
             </div>
           </div>
 
           <!-- powercfg.cpl -->
           <div
-            class="command-row bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
+            class="command-row bg-gray-50/90 dark:bg-gray-900/80 border border-gray-200 dark:border-gray-700 rounded-2xl p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
             data-command="powercfg.cpl"
             data-description="Power Options"
             data-category="System"
           >
             <div>
-              <div class="flex items-center gap-2">
-                <span class="font-mono text-xs px-2 py-1 rounded bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="font-mono text-xs px-2 py-1 rounded-xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
                   powercfg.cpl
                 </span>
-                <span class="text-[0.65rem] px-2 py-1 rounded-full bg-blue-100 text-blue-800 dark:bg-blue-900/40 dark:text-blue-200">
-                  🖥️ System
+                <span class="inline-flex items-center gap-1 text-[0.7rem] px-2 py-1 rounded-full bg-blue-100 text-blue-800 dark:bg-blue-900/50 dark:text-blue-100">
+                  <span>🖥️</span><span>System</span>
                 </span>
               </div>
               <p class="mt-1 text-gray-700 dark:text-gray-300">
@@ -409,27 +501,27 @@
               </p>
             </div>
             <div class="flex items-center gap-2">
-              <button class="copy-btn px-3 py-1 rounded bg-gray-800 text-white dark:bg-gray-100 dark:text-gray-900 text-xs">
+              <button class="copy-btn px-3 py-1.5 rounded-xl bg-gray-900 text-white dark:bg-gray-100 dark:text-gray-900 text-xs shadow-sm hover:bg-gray-700 dark:hover:bg-white">
                 Copy
               </button>
-              <span class="copy-tooltip text-xs text-green-500 hidden">Copied!</span>
+              <span class="copy-tooltip text-xs text-emerald-500 hidden">Copied!</span>
             </div>
           </div>
 
           <!-- sysdm.cpl -->
           <div
-            class="command-row bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
+            class="command-row bg-gray-50/90 dark:bg-gray-900/80 border border-gray-200 dark:border-gray-700 rounded-2xl p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
             data-command="sysdm.cpl"
             data-description="System Properties"
             data-category="System"
           >
             <div>
-              <div class="flex items-center gap-2">
-                <span class="font-mono text-xs px-2 py-1 rounded bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="font-mono text-xs px-2 py-1 rounded-xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
                   sysdm.cpl
                 </span>
-                <span class="text-[0.65rem] px-2 py-1 rounded-full bg-blue-100 text-blue-800 dark:bg-blue-900/40 dark:text-blue-200">
-                  🖥️ System
+                <span class="inline-flex items-center gap-1 text-[0.7rem] px-2 py-1 rounded-full bg-blue-100 text-blue-800 dark:bg-blue-900/50 dark:text-blue-100">
+                  <span>🖥️</span><span>System</span>
                 </span>
               </div>
               <p class="mt-1 text-gray-700 dark:text-gray-300">
@@ -437,27 +529,27 @@
               </p>
             </div>
             <div class="flex items-center gap-2">
-              <button class="copy-btn px-3 py-1 rounded bg-gray-800 text-white dark:bg-gray-100 dark:text-gray-900 text-xs">
+              <button class="copy-btn px-3 py-1.5 rounded-xl bg-gray-900 text-white dark:bg-gray-100 dark:text-gray-900 text-xs shadow-sm hover:bg-gray-700 dark:hover:bg-white">
                 Copy
               </button>
-              <span class="copy-tooltip text-xs text-green-500 hidden">Copied!</span>
+              <span class="copy-tooltip text-xs text-emerald-500 hidden">Copied!</span>
             </div>
           </div>
 
           <!-- timedate.cpl -->
           <div
-            class="command-row bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
+            class="command-row bg-gray-50/90 dark:bg-gray-900/80 border border-gray-200 dark:border-gray-700 rounded-2xl p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
             data-command="timedate.cpl"
             data-description="Date and Time"
             data-category="System"
           >
             <div>
-              <div class="flex items-center gap-2">
-                <span class="font-mono text-xs px-2 py-1 rounded bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="font-mono text-xs px-2 py-1 rounded-xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
                   timedate.cpl
                 </span>
-                <span class="text-[0.65rem] px-2 py-1 rounded-full bg-blue-100 text-blue-800 dark:bg-blue-900/40 dark:text-blue-200">
-                  🖥️ System
+                <span class="inline-flex items-center gap-1 text-[0.7rem] px-2 py-1 rounded-full bg-blue-100 text-blue-800 dark:bg-blue-900/50 dark:text-blue-100">
+                  <span>🖥️</span><span>System</span>
                 </span>
               </div>
               <p class="mt-1 text-gray-700 dark:text-gray-300">
@@ -465,27 +557,27 @@
               </p>
             </div>
             <div class="flex items-center gap-2">
-              <button class="copy-btn px-3 py-1 rounded bg-gray-800 text-white dark:bg-gray-100 dark:text-gray-900 text-xs">
+              <button class="copy-btn px-3 py-1.5 rounded-xl bg-gray-900 text-white dark:bg-gray-100 dark:text-gray-900 text-xs shadow-sm hover:bg-gray-700 dark:hover:bg-white">
                 Copy
               </button>
-              <span class="copy-tooltip text-xs text-green-500 hidden">Copied!</span>
+              <span class="copy-tooltip text-xs text-emerald-500 hidden">Copied!</span>
             </div>
           </div>
 
           <!-- bthprops.cpl -->
           <div
-            class="command-row bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
+            class="command-row bg-gray-50/90 dark:bg-gray-900/80 border border-gray-200 dark:border-gray-700 rounded-2xl p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
             data-command="bthprops.cpl"
             data-description="Bluetooth settings"
             data-category="Hardware"
           >
             <div>
-              <div class="flex items-center gap-2">
-                <span class="font-mono text-xs px-2 py-1 rounded bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="font-mono text-xs px-2 py-1 rounded-xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
                   bthprops.cpl
                 </span>
-                <span class="text-[0.65rem] px-2 py-1 rounded-full bg-orange-100 text-orange-800 dark:bg-orange-900/40 dark:text-orange-200">
-                  🧩 Hardware
+                <span class="inline-flex items-center gap-1 text-[0.7rem] px-2 py-1 rounded-full bg-orange-100 text-orange-800 dark:bg-orange-900/50 dark:text-orange-100">
+                  <span>🧩</span><span>Hardware</span>
                 </span>
               </div>
               <p class="mt-1 text-gray-700 dark:text-gray-300">
@@ -493,27 +585,27 @@
               </p>
             </div>
             <div class="flex items-center gap-2">
-              <button class="copy-btn px-3 py-1 rounded bg-gray-800 text-white dark:bg-gray-100 dark:text-gray-900 text-xs">
+              <button class="copy-btn px-3 py-1.5 rounded-xl bg-gray-900 text-white dark:bg-gray-100 dark:text-gray-900 text-xs shadow-sm hover:bg-gray-700 dark:hover:bg-white">
                 Copy
               </button>
-              <span class="copy-tooltip text-xs text-green-500 hidden">Copied!</span>
+              <span class="copy-tooltip text-xs text-emerald-500 hidden">Copied!</span>
             </div>
           </div>
 
           <!-- telephon.cpl -->
           <div
-            class="command-row bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
+            class="command-row bg-gray-50/90 dark:bg-gray-900/80 border border-gray-200 dark:border-gray-700 rounded-2xl p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
             data-command="telephon.cpl"
             data-description="Phone and Modem"
             data-category="Other"
           >
             <div>
-              <div class="flex items-center gap-2">
-                <span class="font-mono text-xs px-2 py-1 rounded bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="font-mono text-xs px-2 py-1 rounded-xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
                   telephon.cpl
                 </span>
-                <span class="text-[0.65rem] px-2 py-1 rounded-full bg-gray-100 text-gray-800 dark:bg-gray-900/40 dark:text-gray-200">
-                  📁 Other
+                <span class="inline-flex items-center gap-1 text-[0.7rem] px-2 py-1 rounded-full bg-gray-100 text-gray-800 dark:bg-gray-900/60 dark:text-gray-100">
+                  <span>📁</span><span>Other</span>
                 </span>
               </div>
               <p class="mt-1 text-gray-700 dark:text-gray-300">
@@ -521,27 +613,27 @@
               </p>
             </div>
             <div class="flex items-center gap-2">
-              <button class="copy-btn px-3 py-1 rounded bg-gray-800 text-white dark:bg-gray-100 dark:text-gray-900 text-xs">
+              <button class="copy-btn px-3 py-1.5 rounded-xl bg-gray-900 text-white dark:bg-gray-100 dark:text-gray-900 text-xs shadow-sm hover:bg-gray-700 dark:hover:bg-white">
                 Copy
               </button>
-              <span class="copy-tooltip text-xs text-green-500 hidden">Copied!</span>
+              <span class="copy-tooltip text-xs text-emerald-500 hidden">Copied!</span>
             </div>
           </div>
 
           <!-- odbccp32.cpl -->
           <div
-            class="command-row bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
+            class="command-row bg-gray-50/90 dark:bg-gray-900/80 border border-gray-200 dark:border-gray-700 rounded-2xl p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
             data-command="odbccp32.cpl"
             data-description="ODBC Data Source Administrator"
             data-category="Other"
           >
             <div>
-              <div class="flex items-center gap-2">
-                <span class="font-mono text-xs px-2 py-1 rounded bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="font-mono text-xs px-2 py-1 rounded-xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
                   odbccp32.cpl
                 </span>
-                <span class="text-[0.65rem] px-2 py-1 rounded-full bg-gray-100 text-gray-800 dark:bg-gray-900/40 dark:text-gray-200">
-                  📁 Other
+                <span class="inline-flex items-center gap-1 text-[0.7rem] px-2 py-1 rounded-full bg-gray-100 text-gray-800 dark:bg-gray-900/60 dark:text-gray-100">
+                  <span>📁</span><span>Other</span>
                 </span>
               </div>
               <p class="mt-1 text-gray-700 dark:text-gray-300">
@@ -549,38 +641,38 @@
               </p>
             </div>
             <div class="flex items-center gap-2">
-              <button class="copy-btn px-3 py-1 rounded bg-gray-800 text-white dark:bg-gray-100 dark:text-gray-900 text-xs">
+              <button class="copy-btn px-3 py-1.5 rounded-xl bg-gray-900 text-white dark:bg-gray-100 dark:text-gray-900 text-xs shadow-sm hover:bg-gray-700 dark:hover:bg-white">
                 Copy
               </button>
-              <span class="copy-tooltip text-xs text-green-500 hidden">Copied!</span>
+              <span class="copy-tooltip text-xs text-emerald-500 hidden">Copied!</span>
             </div>
           </div>
 
-          <!-- smscfgrc.cpl (SCCM) -->
+          <!-- smscfgrc.cpl (MEMCM) -->
           <div
-            class="command-row bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
+            class="command-row bg-gray-50/90 dark:bg-gray-900/80 border border-gray-200 dark:border-gray-700 rounded-2xl p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
             data-command="smscfgrc.cpl"
-            data-description="Configuration Manager (SCCM) control panel applet"
+            data-description="Configuration Manager (MEMCM) control panel applet"
             data-category="SCCM"
           >
             <div>
-              <div class="flex items-center gap-2">
-                <span class="font-mono text-xs px-2 py-1 rounded bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="font-mono text-xs px-2 py-1 rounded-xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
                   smscfgrc.cpl
                 </span>
-                <span class="text-[0.65rem] px-2 py-1 rounded-full bg-yellow-100 text-yellow-800 dark:bg-yellow-900/40 dark:text-yellow-200">
-                  📦 SCCM
+                <span class="inline-flex items-center gap-1 text-[0.7rem] px-2 py-1 rounded-full bg-yellow-100 text-yellow-800 dark:bg-yellow-900/50 dark:text-yellow-100">
+                  <span>📦</span><span>MEMCM</span>
                 </span>
               </div>
               <p class="mt-1 text-gray-700 dark:text-gray-300">
-                Command line shortcut to launch the <strong>Configuration Manager (SCCM)</strong> Control Panel applet.
+                Command line shortcut to launch the <strong>Configuration Manager (MEMCM)</strong> Control Panel applet.
               </p>
             </div>
             <div class="flex items-center gap-2">
-              <button class="copy-btn px-3 py-1 rounded bg-gray-800 text-white dark:bg-gray-100 dark:text-gray-900 text-xs">
+              <button class="copy-btn px-3 py-1.5 rounded-xl bg-gray-900 text-white dark:bg-gray-100 dark:text-gray-900 text-xs shadow-sm hover:bg-gray-700 dark:hover:bg-white">
                 Copy
               </button>
-              <span class="copy-tooltip text-xs text-green-500 hidden">Copied!</span>
+              <span class="copy-tooltip text-xs text-emerald-500 hidden">Copied!</span>
             </div>
           </div>
 
@@ -588,32 +680,36 @@
       </section>
 
       <!-- SCCM / WMI / DEBUG EXTRAS -->
-      <section id="sccm-wmi" class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-5">
-        <h2 class="text-xl font-semibold mb-4 flex items-center gap-2">
-          🧪 SCCM / WMI / Debug Commands
+      <section id="sccm-wmi" class="bg-white/80 dark:bg-gray-900/80 border border-gray-200/80 dark:border-gray-800/80 rounded-2xl shadow-sm p-5 space-y-4">
+        <h2 class="text-lg font-semibold flex items-center gap-2">
+          <span>🧪</span>
+          <span>MEMCM / WMI / Debug Commands</span>
         </h2>
 
-        <p class="text-sm text-gray-700 dark:text-gray-300 mb-3">
-          These aren’t <code class="font-mono">.cpl</code> files, but they’re often used alongside Control Panel
-          tools for deeper troubleshooting and configuration.
+        <p class="text-sm text-gray-700 dark:text-gray-300">
+          These aren’t
+          <code class="font-mono text-xs px-1.5 py-0.5 rounded bg-gray-100/80 dark:bg-gray-800/80 border border-gray-200 dark:border-gray-700">
+            .cpl
+          </code>
+          files, but they’re often used alongside Control Panel tools for deeper troubleshooting and configuration.
         </p>
 
         <div id="extrasList" class="space-y-3 text-sm">
 
           <!-- wbemtest -->
           <div
-            class="command-row bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
+            class="command-row bg-gray-50/90 dark:bg-gray-900/80 border border-gray-200 dark:border-gray-700 rounded-2xl p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
             data-command="wbemtest"
             data-description="WMI Tester / CIM Studio for querying WMI namespaces"
             data-category="WMI/Debug"
           >
             <div>
-              <div class="flex items-center gap-2">
-                <span class="font-mono text-xs px-2 py-1 rounded bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="font-mono text-xs px-2 py-1 rounded-xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
                   wbemtest
                 </span>
-                <span class="text-[0.65rem] px-2 py-1 rounded-full bg-teal-100 text-teal-800 dark:bg-teal-900/40 dark:text-teal-200">
-                  🧪 WMI / Debug
+                <span class="inline-flex items-center gap-1 text-[0.7rem] px-2 py-1 rounded-full bg-teal-100 text-teal-800 dark:bg-teal-900/50 dark:text-teal-100">
+                  <span>🧪</span><span>WMI / Debug</span>
                 </span>
               </div>
               <p class="mt-1 text-gray-700 dark:text-gray-300">
@@ -621,27 +717,27 @@
               </p>
             </div>
             <div class="flex items-center gap-2">
-              <button class="copy-btn px-3 py-1 rounded bg-gray-800 text-white dark:bg-gray-100 dark:text-gray-900 text-xs">
+              <button class="copy-btn px-3 py-1.5 rounded-xl bg-gray-900 text-white dark:bg-gray-100 dark:text-gray-900 text-xs shadow-sm hover:bg-gray-700 dark:hover:bg-white">
                 Copy
               </button>
-              <span class="copy-tooltip text-xs text-green-500 hidden">Copied!</span>
+              <span class="copy-tooltip text-xs text-emerald-500 hidden">Copied!</span>
             </div>
           </div>
 
           <!-- wmimgmt.msc -->
           <div
-            class="command-row bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
+            class="command-row bg-gray-50/90 dark:bg-gray-900/80 border border-gray-200 dark:border-gray-700 rounded-2xl p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
             data-command="wmimgmt.msc"
             data-description="WMI Control snap-in"
             data-category="WMI/Debug"
           >
             <div>
-              <div class="flex items-center gap-2">
-                <span class="font-mono text-xs px-2 py-1 rounded bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="font-mono text-xs px-2 py-1 rounded-xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
                   wmimgmt.msc
                 </span>
-                <span class="text-[0.65rem] px-2 py-1 rounded-full bg-teal-100 text-teal-800 dark:bg-teal-900/40 dark:text-teal-200">
-                  🧪 WMI / Debug
+                <span class="inline-flex items-center gap-1 text-[0.7rem] px-2 py-1 rounded-full bg-teal-100 text-teal-800 dark:bg-teal-900/50 dark:text-teal-100">
+                  <span>🧪</span><span>WMI / Debug</span>
                 </span>
               </div>
               <p class="mt-1 text-gray-700 dark:text-gray-300">
@@ -649,27 +745,27 @@
               </p>
             </div>
             <div class="flex items-center gap-2">
-              <button class="copy-btn px-3 py-1 rounded bg-gray-800 text-white dark:bg-gray-100 dark:text-gray-900 text-xs">
+              <button class="copy-btn px-3 py-1.5 rounded-xl bg-gray-900 text-white dark:bg-gray-100 dark:text-gray-900 text-xs shadow-sm hover:bg-gray-700 dark:hover:bg-white">
                 Copy
               </button>
-              <span class="copy-tooltip text-xs text-green-500 hidden">Copied!</span>
+              <span class="copy-tooltip text-xs text-emerald-500 hidden">Copied!</span>
             </div>
           </div>
 
           <!-- perfmon /res -->
           <div
-            class="command-row bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
+            class="command-row bg-gray-50/90 dark:bg-gray-900/80 border border-gray-200 dark:border-gray-700 rounded-2xl p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
             data-command="perfmon /res"
             data-description="Resource Monitor for live CPU / disk / network usage"
             data-category="WMI/Debug"
           >
             <div>
-              <div class="flex items-center gap-2">
-                <span class="font-mono text-xs px-2 py-1 rounded bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="font-mono text-xs px-2 py-1 rounded-xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
                   perfmon /res
                 </span>
-                <span class="text-[0.65rem] px-2 py-1 rounded-full bg-teal-100 text-teal-800 dark:bg-teal-900/40 dark:text-teal-200">
-                  🧪 WMI / Debug
+                <span class="inline-flex items-center gap-1 text-[0.7rem] px-2 py-1 rounded-full bg-teal-100 text-teal-800 dark:bg-teal-900/50 dark:text-teal-100">
+                  <span>🧪</span><span>WMI / Debug</span>
                 </span>
               </div>
               <p class="mt-1 text-gray-700 dark:text-gray-300">
@@ -677,27 +773,27 @@
               </p>
             </div>
             <div class="flex items-center gap-2">
-              <button class="copy-btn px-3 py-1 rounded bg-gray-800 text-white dark:bg-gray-100 dark:text-gray-900 text-xs">
+              <button class="copy-btn px-3 py-1.5 rounded-xl bg-gray-900 text-white dark:bg-gray-100 dark:text-gray-900 text-xs shadow-sm hover:bg-gray-700 dark:hover:bg-white">
                 Copy
               </button>
-              <span class="copy-tooltip text-xs text-green-500 hidden">Copied!</span>
+              <span class="copy-tooltip text-xs text-emerald-500 hidden">Copied!</span>
             </div>
           </div>
 
           <!-- eventvwr.msc -->
           <div
-            class="command-row bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
+            class="command-row bg-gray-50/90 dark:bg-gray-900/80 border border-gray-200 dark:border-gray-700 rounded-2xl p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
             data-command="eventvwr.msc"
             data-description="Event Viewer"
             data-category="WMI/Debug"
           >
             <div>
-              <div class="flex items-center gap-2">
-                <span class="font-mono text-xs px-2 py-1 rounded bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="font-mono text-xs px-2 py-1 rounded-xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
                   eventvwr.msc
                 </span>
-                <span class="text-[0.65rem] px-2 py-1 rounded-full bg-teal-100 text-teal-800 dark:bg-teal-900/40 dark:text-teal-200">
-                  🧪 WMI / Debug
+                <span class="inline-flex items-center gap-1 text-[0.7rem] px-2 py-1 rounded-full bg-teal-100 text-teal-800 dark:bg-teal-900/50 dark:text-teal-100">
+                  <span>🧪</span><span>WMI / Debug</span>
                 </span>
               </div>
               <p class="mt-1 text-gray-700 dark:text-gray-300">
@@ -705,10 +801,10 @@
               </p>
             </div>
             <div class="flex items-center gap-2">
-              <button class="copy-btn px-3 py-1 rounded bg-gray-800 text-white dark:bg-gray-100 dark:text-gray-900 text-xs">
+              <button class="copy-btn px-3 py-1.5 rounded-xl bg-gray-900 text-white dark:bg-gray-100 dark:text-gray-900 text-xs shadow-sm hover:bg-gray-700 dark:hover:bg-white">
                 Copy
               </button>
-              <span class="copy-tooltip text-xs text-green-500 hidden">Copied!</span>
+              <span class="copy-tooltip text-xs text-emerald-500 hidden">Copied!</span>
             </div>
           </div>
 
@@ -718,7 +814,12 @@
     </section>
   </main>
 
-  <!-- THEME TOGGLE + FILTER LOGIC -->
+  <!-- FOOTER -->
+  <footer class="border-t border-gray-200 dark:border-gray-800 mt-8 py-5 text-center text-xs text-gray-500 dark:text-gray-400">
+    © 2025 tl docs • My attempt at being a power user
+  </footer>
+
+  <!-- THEME TOGGLE + FILTER / COPY LOGIC -->
   <script>
     const toggleSwitch = document.getElementById("theme-toggle");
     const htmlEl = document.documentElement;
@@ -736,7 +837,7 @@
     const commandRows = document.querySelectorAll(".command-row");
 
     function applyFilters() {
-      const term = searchInput.value.toLowerCase();
+      const term = (searchInput.value || "").toLowerCase();
       const category = categoryFilter.value;
 
       commandRows.forEach(row => {
@@ -750,11 +851,7 @@
         const matchesCategory =
           category === "all" || rowCat === category;
 
-        if (matchesSearch && matchesCategory) {
-          row.style.display = "";
-        } else {
-          row.style.display = "none";
-        }
+        row.style.display = matchesSearch && matchesCategory ? "" : "none";
       });
     }
 
@@ -770,12 +867,10 @@
         const command = row.dataset.command;
         const tooltip = row.querySelector(".copy-tooltip");
 
-        // Try Clipboard API
         try {
           if (navigator.clipboard && navigator.clipboard.writeText) {
             await navigator.clipboard.writeText(command);
           } else {
-            // Fallback
             const temp = document.createElement("textarea");
             temp.value = command;
             document.body.appendChild(temp);
@@ -787,7 +882,6 @@
           console.error("Copy failed", e);
         }
 
-        // Show "Copied!" tooltip briefly
         tooltip.classList.remove("hidden");
         setTimeout(() => {
           tooltip.classList.add("hidden");

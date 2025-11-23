@@ -1,98 +1,162 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>tl docs</title>
+
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    // Enable dark mode class strategy
     tailwind.config = {
-      darkMode: 'class'
+      darkMode: "class",
+      theme: {
+        extend: {
+          keyframes: {
+            float: {
+              "0%, 100%": { transform: "translateX(0)" },
+              "50%": { transform: "translateX(20px)" }
+            },
+            glow: {
+              "0%, 100%": { opacity: 0.8 },
+              "50%": { opacity: 1 }
+            },
+            twinkle: {
+              "0%, 100%": { opacity: 0.2 },
+              "50%": { opacity: 0.8 }
+            }
+          },
+          animation: {
+            float: "float 6s ease-in-out infinite",
+            glow: "glow 3s ease-in-out infinite",
+            twinkle: "twinkle 2s ease-in-out infinite"
+          }
+        }
+      }
     }
   </script>
 </head>
-<body class="bg-gray-900 dark:bg-gray-900 font-sans transition-colors duration-300">
 
-  <!-- Navbar with Dark Mode Toggle -->
-  <nav class="flex justify-between items-center px-6 py-4 bg-gray-800 shadow-md">
-    <h1 class="text-xl font-bold text-gray-100">tl docs</h1>
-    <button id="theme-toggle" class="text-gray-100 text-xl">
-      🌙
-    </button>
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+
+  <!-- NAVBAR -->
+  <nav class="flex justify-between items-center px-6 py-4 bg-white dark:bg-gray-800 shadow-md">
+    <h1 class="text-xl font-bold dark:text-gray-100">tl docs</h1>
+
+    <!-- 🌙/☀️ SLIDER -->
+    <label for="theme-toggle" class="relative inline-block w-20 h-10 cursor-pointer">
+      <input type="checkbox" id="theme-toggle" class="sr-only peer">
+
+      <div class="absolute inset-0 rounded-full bg-sky-300 dark:bg-gray-700 peer-checked:bg-gray-700 transition-colors"></div>
+
+      <!-- slider icon -->
+      <div class="absolute top-0.5 left-0.5 w-9 h-9 rounded-full shadow-md overflow-hidden
+                  transition-all duration-300 peer-checked:translate-x-10">
+        <img src="assets/sun.png" class="block w-full h-full object-cover dark:hidden">
+        <img src="assets/moon.png" class="hidden w-full h-full object-cover dark:block">
+      </div>
+    </label>
   </nav>
 
-  <!-- Hero Section -->
-  <section class="bg-gray-900 text-white py-20 text-center transition-colors duration-300">
-    <h1 class="text-4xl md:text-5xl font-bold mb-4">tl docs</h1>
-    <!-- Subtitle removed -->
+  <!-- BACKGROUND ANIMATIONS -->
+  <div class="pointer-events-none absolute inset-0 overflow-hidden">
+    <!-- floating cloud (light mode only) -->
+    <img src="assets/sun.png"
+         class="hidden dark:hidden opacity-40 absolute top-20 left-10 w-32 animate-float">
+
+    <!-- glowing moon aura (dark mode only) -->
+    <div class="hidden dark:block absolute top-10 right-10 w-40 h-40 rounded-full bg-gray-200 opacity-20 blur-3xl animate-glow"></div>
+
+    <!-- twinkling stars -->
+    <div class="hidden dark:block">
+      <div class="w-2 h-2 bg-white rounded-full absolute top-32 left-24 animate-twinkle"></div>
+      <div class="w-1 h-1 bg-white rounded-full absolute top-16 left-80 animate-twinkle"></div>
+      <div class="w-1.5 h-1.5 bg-white rounded-full absolute top-44 right-48 animate-twinkle"></div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="py-20 text-center">
+    <h1 class="text-5xl font-bold">tl docs</h1>
   </section>
 
-  <!-- Modules Section -->
-  <section class="max-w-6xl mx-auto px-4 py-16">
-    <h2 class="text-3xl font-bold mb-8 text-gray-100">Modules</h2>
-    
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+  <!-- SEARCH BAR -->
+  <div class="max-w-3xl mx-auto mb-10 px-4">
+    <input id="search" type="text"
+      placeholder="Search modules..."
+      class="w-full px-4 py-3 rounded-lg bg-gray-200 dark:bg-gray-700 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+  </div>
 
-      <!-- Module 1 Card -->
-      <div class="bg-gray-800 rounded-lg shadow-md overflow-hidden transition-colors duration-300">
-        <img class="w-full h-48 object-cover" src="assets/placeholder.png" alt="Module 1">
+  <!-- MODULES -->
+  <section class="max-w-6xl mx-auto px-4 pb-20">
+    <h2 class="text-3xl font-bold mb-8">Modules</h2>
+
+    <div id="module-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <!-- MODULE CARD 1 -->
+      <div data-title="module 1"
+           class="module-card bg-white dark:bg-gray-800 shadow rounded-lg overflow-hidden transition-colors duration-300">
+        <img src="assets/placeholder.png" class="w-full h-48 object-cover">
         <div class="p-6">
-          <h3 class="text-xl font-bold mb-2 text-gray-100">Module 1</h3>
-          <p class="text-gray-300 mb-4">Start learning with Module 1.</p>
-          <a href="modules/module1.html" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded">
-            Start Learning
-          </a>
+          <h3 class="text-xl font-bold mb-2">Module 1</h3>
+          <p class="text-gray-700 dark:text-gray-300 mb-4">Start learning with Module 1.</p>
+          <a href="modules/module1.html" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">Start Learning</a>
         </div>
       </div>
 
-      <!-- Module 2 Card -->
-      <div class="bg-gray-800 rounded-lg shadow-md overflow-hidden transition-colors duration-300">
-        <img class="w-full h-48 object-cover" src="assets/placeholder.png" alt="Module 2">
+      <!-- MODULE CARD 2 -->
+      <div data-title="module 2"
+           class="module-card bg-white dark:bg-gray-800 shadow rounded-lg overflow-hidden transition-colors duration-300">
+        <img src="assets/placeholder.png" class="w-full h-48 object-cover">
         <div class="p-6">
-          <h3 class="text-xl font-bold mb-2 text-gray-100">Module 2</h3>
-          <p class="text-gray-300 mb-4">Start learning with Module 2.</p>
-          <a href="modules/module2.html" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded">
-            Start Learning
-          </a>
+          <h3 class="text-xl font-bold mb-2">Module 2</h3>
+          <p class="text-gray-700 dark:text-gray-300 mb-4">Start learning with Module 2.</p>
+          <a href="modules/module2.html" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">Start Learning</a>
         </div>
       </div>
 
-      <!-- Module 3 Card -->
-      <div class="bg-gray-800 rounded-lg shadow-md overflow-hidden transition-colors duration-300">
-        <img class="w-full h-48 object-cover" src="assets/placeholder.png" alt="Module 3">
+      <!-- MODULE CARD 3 -->
+      <div data-title="module 3"
+           class="module-card bg-white dark:bg-gray-800 shadow rounded-lg overflow-hidden transition-colors duration-300">
+        <img src="assets/placeholder.png" class="w-full h-48 object-cover">
         <div class="p-6">
-          <h3 class="text-xl font-bold mb-2 text-gray-100">Module 3</h3>
-          <p class="text-gray-300 mb-4">Start learning with Module 3.</p>
-          <a href="modules/module3.html" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded">
-            Start Learning
-          </a>
+          <h3 class="text-xl font-bold mb-2">Module 3</h3>
+          <p class="text-gray-700 dark:text-gray-300 mb-4">Start learning with Module 3.</p>
+          <a href="modules/module3.html" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">Start Learning</a>
         </div>
       </div>
 
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="bg-gray-800 dark:bg-gray-900 text-white py-6 text-center">
-    &copy; 2025 tl docs. Built with Tailwind CSS.
+  <!-- FOOTER -->
+  <footer class="bg-gray-200 dark:bg-gray-800 text-center py-6">
+    © 2025 tl docs
   </footer>
 
-  <!-- Dark Mode Toggle Script -->
+  <!-- TOGGLE JS -->
   <script>
-    const toggleButton = document.getElementById('theme-toggle');
-    const htmlElement = document.documentElement;
+    const toggleSwitch = document.getElementById("theme-toggle");
+    const htmlEl = document.documentElement;
 
-    const updateToggleIcon = () => {
-      toggleButton.textContent = htmlElement.classList.contains('dark') ? '🌙' : '☀️';
-    }
+    toggleSwitch.checked = htmlEl.classList.contains("dark");
 
-    // Initialize icon
-    updateToggleIcon();
+    toggleSwitch.addEventListener("change", () => {
+      htmlEl.classList.toggle("dark");
+    });
+  </script>
 
-    toggleButton.addEventListener('click', () => {
-      htmlElement.classList.toggle('dark');
-      updateToggleIcon();
+  <!-- SEARCH FILTER JS -->
+  <script>
+    const searchInput = document.getElementById("search");
+    const cards = document.querySelectorAll(".module-card");
+
+    searchInput.addEventListener("input", () => {
+      const query = searchInput.value.toLowerCase();
+      cards.forEach(card => {
+        const title = card.getAttribute("data-title");
+        card.style.display = title.includes(query) ? "block" : "none";
+      });
     });
   </script>
 

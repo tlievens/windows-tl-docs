@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Windows CPL + Control Commands – tl docs</title>
+  <title>Windows CPL + Control Commands | tl docs</title>
 
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -16,383 +16,709 @@
 
 <body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 font-sans">
 
-  <!-- NAVBAR (matches home) -->
+  <!-- NAVBAR -->
   <nav class="flex justify-between items-center px-6 py-4 bg-white dark:bg-gray-800 shadow-md">
     <a href="../index.html" class="text-xl font-bold text-gray-800 dark:text-gray-100">
       tl docs
     </a>
 
-    <!-- Sun/Moon Slider Toggle -->
+    <!-- Sun/Moon Slider Toggle (no animations) -->
     <label for="theme-toggle" class="relative inline-block w-20 h-10 cursor-pointer select-none">
       <input type="checkbox" id="theme-toggle" class="sr-only peer" />
 
       <!-- Track -->
-      <div class="absolute inset-0 rounded-full bg-sky-300 dark:bg-gray-700
-                  peer-checked:bg-gray-700"></div>
+      <div class="absolute inset-0 rounded-full bg-sky-300 dark:bg-gray-700 peer-checked:bg-gray-700"></div>
 
       <!-- Icon -->
-      <div class="absolute top-0.5 left-0.5 w-9 h-9 rounded-full shadow-md overflow-hidden
-                  peer-checked:translate-x-10">
-
+      <div class="absolute top-0.5 left-0.5 w-9 h-9 rounded-full shadow-md overflow-hidden peer-checked:translate-x-10">
         <!-- Sun (light) -->
-        <img src="../assets/sun.png"
-             class="block w-full h-full object-cover dark:hidden"
-             alt="Sun" />
-
+        <img src="../assets/sun.png" class="block w-full h-full object-cover dark:hidden" alt="Sun" />
         <!-- Moon (dark) -->
-        <img src="../assets/moon.png"
-             class="hidden w-full h-full object-cover dark:block"
-             alt="Moon" />
+        <img src="../assets/moon.png" class="hidden w-full h-full object-cover dark:block" alt="Moon" />
       </div>
     </label>
   </nav>
 
-  <!-- PAGE WRAPPER -->
-  <main class="max-w-6xl mx-auto px-4 py-10 flex flex-col md:flex-row gap-8">
+  <!-- HERO -->
+  <section class="py-10 border-b border-gray-200 dark:border-gray-800 text-center">
+    <h1 class="text-3xl md:text-4xl font-bold mb-2">
+      🪟 Windows CPL + Control Commands
+    </h1>
+    <p class="text-gray-600 dark:text-gray-300 text-sm md:text-base">
+      Quickly launch classic Control Panel applets & related tools ⚙️
+    </p>
+  </section>
 
-    <!-- SIDEBAR NAV -->
-    <aside class="md:w-64 bg-white dark:bg-gray-800 rounded-lg shadow p-4 h-fit">
+  <!-- MAIN LAYOUT -->
+  <main class="max-w-6xl mx-auto px-4 py-8 flex flex-col md:flex-row gap-8">
+
+    <!-- SIDEBAR -->
+    <aside class="md:w-64 bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 h-max">
       <h2 class="text-lg font-semibold mb-3 flex items-center gap-2">
-        🧭 Navigation
+        📚 Navigation
       </h2>
       <nav class="space-y-2 text-sm">
-        <a href="#overview" class="block text-gray-700 dark:text-gray-200 hover:text-blue-500">
-          📋 Overview
+        <a href="#overview" class="block px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-700">
+          🔍 Overview
         </a>
-        <a href="#filters" class="block text-gray-700 dark:text-gray-200 hover:text-blue-500">
-          🔍 Search & Filters
+        <a href="#cpl-list" class="block px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-700">
+          ⚙️ CPL Commands
         </a>
-        <a href="#commands" class="block text-gray-700 dark:text-gray-200 hover:text-blue-500">
-          🧮 All CPL Commands
+        <a href="#sccm-wmi" class="block px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-700">
+          🧪 SCCM / WMI / Debug
         </a>
-        <a href="#memcm" class="block text-gray-700 dark:text-gray-200 hover:text-blue-500">
-          🧱 MEMCM & Debug Tools
+        <a href="../index.html" class="block px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-700">
+          ⬅️ Back to Home
         </a>
       </nav>
     </aside>
 
-    <!-- MAIN CONTENT -->
+    <!-- CONTENT -->
     <section class="flex-1 space-y-8">
 
-      <!-- HERO / HEADER -->
-      <section id="overview" class="bg-white dark:bg-gray-800 rounded-lg shadow p-6 flex flex-col md:flex-row gap-6 items-center">
-        <div class="w-32 h-32 md:w-40 md:h-40 flex-shrink-0">
-          <img src="../assets/cpl.png"
-               alt="Windows CPL + Control Commands"
-               class="w-full h-full object-contain rounded" />
-        </div>
-        <div>
-          <h1 class="text-2xl md:text-3xl font-bold mb-2 flex items-center gap-2">
-            🪟 Windows CPL + Control Commands
-          </h1>
-          <p class="text-sm text-gray-700 dark:text-gray-300 mb-2">
-            This module covers classic <code>.cpl</code> Control Panel applets and related tools
-            so you can launch key Windows configuration panels quickly from <code>Run</code>, a shortcut,
-            or scripts.
-          </p>
-          <p class="text-sm text-gray-700 dark:text-gray-300">
-            Use the search box 🔎, category filter 🧩, and one-click copy 📋 to explore and use these commands.
-          </p>
-        </div>
+      <!-- OVERVIEW -->
+      <section id="overview" class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-5">
+        <h2 class="text-xl font-semibold mb-3 flex items-center gap-2">
+          🔍 Overview
+        </h2>
+        <p class="text-sm md:text-base text-gray-700 dark:text-gray-300 mb-2">
+          This module collects commonly used <code class="font-mono">*.cpl</code> (Control Panel)
+          commands and a few related SCCM / WMI / debug tools. Use the search box and filters
+          to quickly find what you need, then click <strong>Copy</strong> to grab the command. 💡
+        </p>
       </section>
 
-      <!-- FILTERS -->
-      <section id="filters" class="bg-white dark:bg-gray-800 rounded-lg shadow p-6 space-y-4">
-        <h2 class="text-xl font-semibold mb-2 flex items-center gap-2">
-          🔍 Search & Filter
+      <!-- CPL COMMANDS LIST -->
+      <section id="cpl-list" class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-5">
+        <h2 class="text-xl font-semibold mb-4 flex items-center gap-2">
+          ⚙️ CPL Commands
         </h2>
 
-        <div class="flex flex-col md:flex-row gap-4">
-          <!-- Search box -->
+        <!-- Filters -->
+        <div class="flex flex-col sm:flex-row gap-4 mb-4">
           <div class="flex-1">
-            <label for="search-input" class="block text-sm font-medium mb-1">
-              Search commands
+            <label for="search" class="block text-xs font-semibold mb-1">
+              Search commands / descriptions
             </label>
             <input
-              id="search-input"
+              id="search"
               type="text"
-              placeholder="Search (e.g. appwiz, network, MEMCM)…"
-              class="w-full rounded border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 px-3 py-2 text-sm"
+              placeholder="🔎 e.g. network, sound, firewall..."
+              class="w-full px-3 py-2 rounded border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 text-sm"
             />
           </div>
 
-          <!-- Category filter -->
-          <div class="w-full md:w-60">
-            <label for="category-filter" class="block text-sm font-medium mb-1">
-              Category 🧩
+          <div class="w-full sm:w-52">
+            <label for="categoryFilter" class="block text-xs font-semibold mb-1">
+              Category
             </label>
             <select
-              id="category-filter"
-              class="w-full rounded border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 px-3 py-2 text-sm"
+              id="categoryFilter"
+              class="w-full px-3 py-2 rounded border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 text-sm"
             >
-              <option value="">All categories</option>
-              <option value="System">System</option>
-              <option value="Programs">Programs</option>
-              <option value="Networking">Networking</option>
-              <option value="Hardware">Hardware</option>
-              <option value="Security">Security</option>
-              <option value="Date & Time">Date & Time</option>
-              <option value="Region & Language">Region & Language</option>
-              <option value="User Accounts">User Accounts</option>
-              <option value="MEMCM">MEMCM</option>
-              <option value="Debug / Tools">Debug / Tools</option>
-              <option value="Other">Other</option>
+              <option value="all">📂 All Categories</option>
+              <option value="System">🖥️ System</option>
+              <option value="Networking">🌐 Networking</option>
+              <option value="Security">🛡️ Security</option>
+              <option value="Hardware">🧩 Hardware</option>
+              <option value="Audio/Video">🎧 Audio / Video</option>
+              <option value="Region/Language">🌎 Region / Language</option>
+              <option value="SCCM">📦 SCCM</option>
+              <option value="WMI/Debug">🧪 WMI / Debug</option>
+              <option value="Other">📁 Other</option>
             </select>
           </div>
         </div>
+
+        <!-- Command Rows -->
+        <div id="commandsList" class="space-y-3 text-sm">
+
+          <!-- Each row: command-row -->
+          <!-- appwiz.cpl -->
+          <div
+            class="command-row bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
+            data-command="appwiz.cpl"
+            data-description="Programs and Features (Add/Remove Programs)"
+            data-category="System"
+          >
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="font-mono text-xs px-2 py-1 rounded bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+                  appwiz.cpl
+                </span>
+                <span class="text-[0.65rem] px-2 py-1 rounded-full bg-blue-100 text-blue-800 dark:bg-blue-900/40 dark:text-blue-200">
+                  🖥️ System
+                </span>
+              </div>
+              <p class="mt-1 text-gray-700 dark:text-gray-300">
+                Opens <strong>Programs and Features</strong> to uninstall or change installed apps.
+              </p>
+            </div>
+            <div class="flex items-center gap-2">
+              <button class="copy-btn px-3 py-1 rounded bg-gray-800 text-white dark:bg-gray-100 dark:text-gray-900 text-xs">
+                Copy
+              </button>
+              <span class="copy-tooltip text-xs text-green-500 hidden">
+                Copied!
+              </span>
+            </div>
+          </div>
+
+          <!-- desk.cpl -->
+          <div
+            class="command-row bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
+            data-command="desk.cpl"
+            data-description="Display settings"
+            data-category="System"
+          >
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="font-mono text-xs px-2 py-1 rounded bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+                  desk.cpl
+                </span>
+                <span class="text-[0.65rem] px-2 py-1 rounded-full bg-blue-100 text-blue-800 dark:bg-blue-900/40 dark:text-blue-200">
+                  🖥️ System
+                </span>
+              </div>
+              <p class="mt-1 text-gray-700 dark:text-gray-300">
+                Opens <strong>Display Settings</strong> (screen resolution, multiple displays, etc.).
+              </p>
+            </div>
+            <div class="flex items-center gap-2">
+              <button class="copy-btn px-3 py-1 rounded bg-gray-800 text-white dark:bg-gray-100 dark:text-gray-900 text-xs">
+                Copy
+              </button>
+              <span class="copy-tooltip text-xs text-green-500 hidden">Copied!</span>
+            </div>
+          </div>
+
+          <!-- firewall.cpl -->
+          <div
+            class="command-row bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
+            data-command="firewall.cpl"
+            data-description="Windows Defender Firewall settings"
+            data-category="Security"
+          >
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="font-mono text-xs px-2 py-1 rounded bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+                  firewall.cpl
+                </span>
+                <span class="text-[0.65rem] px-2 py-1 rounded-full bg-red-100 text-red-800 dark:bg-red-900/40 dark:text-red-200">
+                  🛡️ Security
+                </span>
+              </div>
+              <p class="mt-1 text-gray-700 dark:text-gray-300">
+                Opens <strong>Windows Defender Firewall</strong> configuration.
+              </p>
+            </div>
+            <div class="flex items-center gap-2">
+              <button class="copy-btn px-3 py-1 rounded bg-gray-800 text-white dark:bg-gray-100 dark:text-gray-900 text-xs">
+                Copy
+              </button>
+              <span class="copy-tooltip text-xs text-green-500 hidden">Copied!</span>
+            </div>
+          </div>
+
+          <!-- inetcpl.cpl -->
+          <div
+            class="command-row bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
+            data-command="inetcpl.cpl"
+            data-description="Internet Options"
+            data-category="Networking"
+          >
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="font-mono text-xs px-2 py-1 rounded bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+                  inetcpl.cpl
+                </span>
+                <span class="text-[0.65rem] px-2 py-1 rounded-full bg-green-100 text-green-800 dark:bg-green-900/40 dark:text-green-200">
+                  🌐 Networking
+                </span>
+              </div>
+              <p class="mt-1 text-gray-700 dark:text-gray-300">
+                Opens <strong>Internet Options</strong> (proxy, security zones, browsing history).
+              </p>
+            </div>
+            <div class="flex items-center gap-2">
+              <button class="copy-btn px-3 py-1 rounded bg-gray-800 text-white dark:bg-gray-100 dark:text-gray-900 text-xs">
+                Copy
+              </button>
+              <span class="copy-tooltip text-xs text-green-500 hidden">Copied!</span>
+            </div>
+          </div>
+
+          <!-- intl.cpl -->
+          <div
+            class="command-row bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
+            data-command="intl.cpl"
+            data-description="Region and language settings"
+            data-category="Region/Language"
+          >
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="font-mono text-xs px-2 py-1 rounded bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+                  intl.cpl
+                </span>
+                <span class="text-[0.65rem] px-2 py-1 rounded-full bg-purple-100 text-purple-800 dark:bg-purple-900/40 dark:text-purple-200">
+                  🌎 Region / Language
+                </span>
+              </div>
+              <p class="mt-1 text-gray-700 dark:text-gray-300">
+                Opens <strong>Region</strong> settings (formats, location, administrative locale).
+              </p>
+            </div>
+            <div class="flex items-center gap-2">
+              <button class="copy-btn px-3 py-1 rounded bg-gray-800 text-white dark:bg-gray-100 dark:text-gray-900 text-xs">
+                Copy
+              </button>
+              <span class="copy-tooltip text-xs text-green-500 hidden">Copied!</span>
+            </div>
+          </div>
+
+          <!-- joy.cpl -->
+          <div
+            class="command-row bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
+            data-command="joy.cpl"
+            data-description="Game controllers"
+            data-category="Hardware"
+          >
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="font-mono text-xs px-2 py-1 rounded bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+                  joy.cpl
+                </span>
+                <span class="text-[0.65rem] px-2 py-1 rounded-full bg-orange-100 text-orange-800 dark:bg-orange-900/40 dark:text-orange-200">
+                  🧩 Hardware
+                </span>
+              </div>
+              <p class="mt-1 text-gray-700 dark:text-gray-300">
+                Opens <strong>Game Controllers</strong> configuration (joysticks, gamepads).
+              </p>
+            </div>
+            <div class="flex items-center gap-2">
+              <button class="copy-btn px-3 py-1 rounded bg-gray-800 text-white dark:bg-gray-100 dark:text-gray-900 text-xs">
+                Copy
+              </button>
+              <span class="copy-tooltip text-xs text-green-500 hidden">Copied!</span>
+            </div>
+          </div>
+
+          <!-- main.cpl (Mouse) -->
+          <div
+            class="command-row bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
+            data-command="main.cpl"
+            data-description="Mouse properties"
+            data-category="Hardware"
+          >
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="font-mono text-xs px-2 py-1 rounded bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+                  main.cpl
+                </span>
+                <span class="text-[0.65rem] px-2 py-1 rounded-full bg-orange-100 text-orange-800 dark:bg-orange-900/40 dark:text-orange-200">
+                  🧩 Hardware
+                </span>
+              </div>
+              <p class="mt-1 text-gray-700 dark:text-gray-300">
+                Opens <strong>Mouse</strong> properties (buttons, pointer, wheel, hardware).
+              </p>
+            </div>
+            <div class="flex items-center gap-2">
+              <button class="copy-btn px-3 py-1 rounded bg-gray-800 text-white dark:bg-gray-100 dark:text-gray-900 text-xs">
+                Copy
+              </button>
+              <span class="copy-tooltip text-xs text-green-500 hidden">Copied!</span>
+            </div>
+          </div>
+
+          <!-- mmsys.cpl (Sound) -->
+          <div
+            class="command-row bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
+            data-command="mmsys.cpl"
+            data-description="Sound settings"
+            data-category="Audio/Video"
+          >
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="font-mono text-xs px-2 py-1 rounded bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+                  mmsys.cpl
+                </span>
+                <span class="text-[0.65rem] px-2 py-1 rounded-full bg-pink-100 text-pink-800 dark:bg-pink-900/40 dark:text-pink-200">
+                  🎧 Audio / Video
+                </span>
+              </div>
+              <p class="mt-1 text-gray-700 dark:text-gray-300">
+                Opens <strong>Sound</strong> (playback/recording devices, sounds, communications).
+              </p>
+            </div>
+            <div class="flex items-center gap-2">
+              <button class="copy-btn px-3 py-1 rounded bg-gray-800 text-white dark:bg-gray-100 dark:text-gray-900 text-xs">
+                Copy
+              </button>
+              <span class="copy-tooltip text-xs text-green-500 hidden">Copied!</span>
+            </div>
+          </div>
+
+          <!-- ncpa.cpl -->
+          <div
+            class="command-row bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
+            data-command="ncpa.cpl"
+            data-description="Network Connections"
+            data-category="Networking"
+          >
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="font-mono text-xs px-2 py-1 rounded bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+                  ncpa.cpl
+                </span>
+                <span class="text-[0.65rem] px-2 py-1 rounded-full bg-green-100 text-green-800 dark:bg-green-900/40 dark:text-green-200">
+                  🌐 Networking
+                </span>
+              </div>
+              <p class="mt-1 text-gray-700 dark:text-gray-300">
+                Opens <strong>Network Connections</strong> (adapters, status, properties).
+              </p>
+            </div>
+            <div class="flex items-center gap-2">
+              <button class="copy-btn px-3 py-1 rounded bg-gray-800 text-white dark:bg-gray-100 dark:text-gray-900 text-xs">
+                Copy
+              </button>
+              <span class="copy-tooltip text-xs text-green-500 hidden">Copied!</span>
+            </div>
+          </div>
+
+          <!-- powercfg.cpl -->
+          <div
+            class="command-row bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
+            data-command="powercfg.cpl"
+            data-description="Power Options"
+            data-category="System"
+          >
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="font-mono text-xs px-2 py-1 rounded bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+                  powercfg.cpl
+                </span>
+                <span class="text-[0.65rem] px-2 py-1 rounded-full bg-blue-100 text-blue-800 dark:bg-blue-900/40 dark:text-blue-200">
+                  🖥️ System
+                </span>
+              </div>
+              <p class="mt-1 text-gray-700 dark:text-gray-300">
+                Opens <strong>Power Options</strong> (power plans, lid/plugged-in behavior).
+              </p>
+            </div>
+            <div class="flex items-center gap-2">
+              <button class="copy-btn px-3 py-1 rounded bg-gray-800 text-white dark:bg-gray-100 dark:text-gray-900 text-xs">
+                Copy
+              </button>
+              <span class="copy-tooltip text-xs text-green-500 hidden">Copied!</span>
+            </div>
+          </div>
+
+          <!-- sysdm.cpl -->
+          <div
+            class="command-row bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
+            data-command="sysdm.cpl"
+            data-description="System Properties"
+            data-category="System"
+          >
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="font-mono text-xs px-2 py-1 rounded bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+                  sysdm.cpl
+                </span>
+                <span class="text-[0.65rem] px-2 py-1 rounded-full bg-blue-100 text-blue-800 dark:bg-blue-900/40 dark:text-blue-200">
+                  🖥️ System
+                </span>
+              </div>
+              <p class="mt-1 text-gray-700 dark:text-gray-300">
+                Opens <strong>System Properties</strong> (computer name, performance, remote, system restore).
+              </p>
+            </div>
+            <div class="flex items-center gap-2">
+              <button class="copy-btn px-3 py-1 rounded bg-gray-800 text-white dark:bg-gray-100 dark:text-gray-900 text-xs">
+                Copy
+              </button>
+              <span class="copy-tooltip text-xs text-green-500 hidden">Copied!</span>
+            </div>
+          </div>
+
+          <!-- timedate.cpl -->
+          <div
+            class="command-row bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
+            data-command="timedate.cpl"
+            data-description="Date and Time"
+            data-category="System"
+          >
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="font-mono text-xs px-2 py-1 rounded bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+                  timedate.cpl
+                </span>
+                <span class="text-[0.65rem] px-2 py-1 rounded-full bg-blue-100 text-blue-800 dark:bg-blue-900/40 dark:text-blue-200">
+                  🖥️ System
+                </span>
+              </div>
+              <p class="mt-1 text-gray-700 dark:text-gray-300">
+                Opens <strong>Date and Time</strong> (time zone, internet time sync).
+              </p>
+            </div>
+            <div class="flex items-center gap-2">
+              <button class="copy-btn px-3 py-1 rounded bg-gray-800 text-white dark:bg-gray-100 dark:text-gray-900 text-xs">
+                Copy
+              </button>
+              <span class="copy-tooltip text-xs text-green-500 hidden">Copied!</span>
+            </div>
+          </div>
+
+          <!-- bthprops.cpl -->
+          <div
+            class="command-row bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
+            data-command="bthprops.cpl"
+            data-description="Bluetooth settings"
+            data-category="Hardware"
+          >
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="font-mono text-xs px-2 py-1 rounded bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+                  bthprops.cpl
+                </span>
+                <span class="text-[0.65rem] px-2 py-1 rounded-full bg-orange-100 text-orange-800 dark:bg-orange-900/40 dark:text-orange-200">
+                  🧩 Hardware
+                </span>
+              </div>
+              <p class="mt-1 text-gray-700 dark:text-gray-300">
+                Opens <strong>Bluetooth</strong> settings (pairing, adapters).
+              </p>
+            </div>
+            <div class="flex items-center gap-2">
+              <button class="copy-btn px-3 py-1 rounded bg-gray-800 text-white dark:bg-gray-100 dark:text-gray-900 text-xs">
+                Copy
+              </button>
+              <span class="copy-tooltip text-xs text-green-500 hidden">Copied!</span>
+            </div>
+          </div>
+
+          <!-- telephon.cpl -->
+          <div
+            class="command-row bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
+            data-command="telephon.cpl"
+            data-description="Phone and Modem"
+            data-category="Other"
+          >
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="font-mono text-xs px-2 py-1 rounded bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+                  telephon.cpl
+                </span>
+                <span class="text-[0.65rem] px-2 py-1 rounded-full bg-gray-100 text-gray-800 dark:bg-gray-900/40 dark:text-gray-200">
+                  📁 Other
+                </span>
+              </div>
+              <p class="mt-1 text-gray-700 dark:text-gray-300">
+                Opens <strong>Phone and Modem</strong> options (dialing rules, modems).
+              </p>
+            </div>
+            <div class="flex items-center gap-2">
+              <button class="copy-btn px-3 py-1 rounded bg-gray-800 text-white dark:bg-gray-100 dark:text-gray-900 text-xs">
+                Copy
+              </button>
+              <span class="copy-tooltip text-xs text-green-500 hidden">Copied!</span>
+            </div>
+          </div>
+
+          <!-- odbccp32.cpl -->
+          <div
+            class="command-row bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
+            data-command="odbccp32.cpl"
+            data-description="ODBC Data Source Administrator"
+            data-category="Other"
+          >
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="font-mono text-xs px-2 py-1 rounded bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+                  odbccp32.cpl
+                </span>
+                <span class="text-[0.65rem] px-2 py-1 rounded-full bg-gray-100 text-gray-800 dark:bg-gray-900/40 dark:text-gray-200">
+                  📁 Other
+                </span>
+              </div>
+              <p class="mt-1 text-gray-700 dark:text-gray-300">
+                Opens <strong>ODBC Data Source Administrator</strong> for DSN configuration.
+              </p>
+            </div>
+            <div class="flex items-center gap-2">
+              <button class="copy-btn px-3 py-1 rounded bg-gray-800 text-white dark:bg-gray-100 dark:text-gray-900 text-xs">
+                Copy
+              </button>
+              <span class="copy-tooltip text-xs text-green-500 hidden">Copied!</span>
+            </div>
+          </div>
+
+          <!-- smscfgrc.cpl (SCCM) -->
+          <div
+            class="command-row bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
+            data-command="smscfgrc.cpl"
+            data-description="Configuration Manager (SCCM) control panel applet"
+            data-category="SCCM"
+          >
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="font-mono text-xs px-2 py-1 rounded bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+                  smscfgrc.cpl
+                </span>
+                <span class="text-[0.65rem] px-2 py-1 rounded-full bg-yellow-100 text-yellow-800 dark:bg-yellow-900/40 dark:text-yellow-200">
+                  📦 SCCM
+                </span>
+              </div>
+              <p class="mt-1 text-gray-700 dark:text-gray-300">
+                Command line shortcut to launch the <strong>Configuration Manager (SCCM)</strong> Control Panel applet.
+              </p>
+            </div>
+            <div class="flex items-center gap-2">
+              <button class="copy-btn px-3 py-1 rounded bg-gray-800 text-white dark:bg-gray-100 dark:text-gray-900 text-xs">
+                Copy
+              </button>
+              <span class="copy-tooltip text-xs text-green-500 hidden">Copied!</span>
+            </div>
+          </div>
+
+        </div>
       </section>
 
-      <!-- COMMANDS TABLE -->
-      <section id="commands" class="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
+      <!-- SCCM / WMI / DEBUG EXTRAS -->
+      <section id="sccm-wmi" class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-5">
         <h2 class="text-xl font-semibold mb-4 flex items-center gap-2">
-          🧮 Windows CPL Commands
+          🧪 SCCM / WMI / Debug Commands
         </h2>
-        <p class="text-sm text-gray-700 dark:text-gray-300 mb-4">
-          Click the <span class="inline-flex items-center gap-1">📋 <span>Copy</span></span> button
-          to copy the command to your clipboard. A quick “Copied!” tag will confirm it worked.
+
+        <p class="text-sm text-gray-700 dark:text-gray-300 mb-3">
+          These aren’t <code class="font-mono">.cpl</code> files, but they’re often used alongside Control Panel
+          tools for deeper troubleshooting and configuration.
         </p>
 
-        <div class="overflow-x-auto">
-          <table class="min-w-full text-sm align-middle">
-            <thead class="border-b border-gray-200 dark:border-gray-700 text-left text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
-              <tr>
-                <th class="py-2 pr-4">Command</th>
-                <th class="py-2 pr-4">Description</th>
-                <th class="py-2 pr-4">Category</th>
-                <th class="py-2">Copy</th>
-              </tr>
-            </thead>
-            <tbody id="cpl-table-body" class="divide-y divide-gray-200 dark:divide-gray-700">
+        <div id="extrasList" class="space-y-3 text-sm">
 
-              <!-- Each row: data-category used for filtering -->
+          <!-- wbemtest -->
+          <div
+            class="command-row bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
+            data-command="wbemtest"
+            data-description="WMI Tester / CIM Studio for querying WMI namespaces"
+            data-category="WMI/Debug"
+          >
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="font-mono text-xs px-2 py-1 rounded bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+                  wbemtest
+                </span>
+                <span class="text-[0.65rem] px-2 py-1 rounded-full bg-teal-100 text-teal-800 dark:bg-teal-900/40 dark:text-teal-200">
+                  🧪 WMI / Debug
+                </span>
+              </div>
+              <p class="mt-1 text-gray-700 dark:text-gray-300">
+                Launches the <strong>WMI Tester</strong> tool to query and test WMI classes/instances.
+              </p>
+            </div>
+            <div class="flex items-center gap-2">
+              <button class="copy-btn px-3 py-1 rounded bg-gray-800 text-white dark:bg-gray-100 dark:text-gray-900 text-xs">
+                Copy
+              </button>
+              <span class="copy-tooltip text-xs text-green-500 hidden">Copied!</span>
+            </div>
+          </div>
 
-              <tr class="cpl-row" data-category="Programs">
-                <td class="py-2 pr-4 font-mono text-xs md:text-sm">appwiz.cpl</td>
-                <td class="py-2 pr-4">Programs and Features – uninstall or change installed programs.</td>
-                <td class="py-2 pr-4">Programs</td>
-                <td class="py-2">
-                  <button class="copy-btn inline-flex items-center gap-1 px-2 py-1 rounded bg-blue-600 text-white text-xs">
-                    📋 Copy
-                  </button>
-                  <span class="copied-tag ml-2 text-xs text-emerald-400 hidden">Copied!</span>
-                </td>
-              </tr>
+          <!-- wmimgmt.msc -->
+          <div
+            class="command-row bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
+            data-command="wmimgmt.msc"
+            data-description="WMI Control snap-in"
+            data-category="WMI/Debug"
+          >
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="font-mono text-xs px-2 py-1 rounded bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+                  wmimgmt.msc
+                </span>
+                <span class="text-[0.65rem] px-2 py-1 rounded-full bg-teal-100 text-teal-800 dark:bg-teal-900/40 dark:text-teal-200">
+                  🧪 WMI / Debug
+                </span>
+              </div>
+              <p class="mt-1 text-gray-700 dark:text-gray-300">
+                Opens <strong>WMI Control</strong> (repository, security, backup/restore).
+              </p>
+            </div>
+            <div class="flex items-center gap-2">
+              <button class="copy-btn px-3 py-1 rounded bg-gray-800 text-white dark:bg-gray-100 dark:text-gray-900 text-xs">
+                Copy
+              </button>
+              <span class="copy-tooltip text-xs text-green-500 hidden">Copied!</span>
+            </div>
+          </div>
 
-              <tr class="cpl-row" data-category="Networking">
-                <td class="py-2 pr-4 font-mono text-xs md:text-sm">inetcpl.cpl</td>
-                <td class="py-2 pr-4">Internet Options – browser settings, security zones, connections.</td>
-                <td class="py-2 pr-4">Networking</td>
-                <td class="py-2">
-                  <button class="copy-btn inline-flex items-center gap-1 px-2 py-1 rounded bg-blue-600 text-white text-xs">
-                    📋 Copy
-                  </button>
-                  <span class="copied-tag ml-2 text-xs text-emerald-400 hidden">Copied!</span>
-                </td>
-              </tr>
+          <!-- perfmon /res -->
+          <div
+            class="command-row bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
+            data-command="perfmon /res"
+            data-description="Resource Monitor for live CPU / disk / network usage"
+            data-category="WMI/Debug"
+          >
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="font-mono text-xs px-2 py-1 rounded bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+                  perfmon /res
+                </span>
+                <span class="text-[0.65rem] px-2 py-1 rounded-full bg-teal-100 text-teal-800 dark:bg-teal-900/40 dark:text-teal-200">
+                  🧪 WMI / Debug
+                </span>
+              </div>
+              <p class="mt-1 text-gray-700 dark:text-gray-300">
+                Opens <strong>Resource Monitor</strong> for detailed performance diagnostics.
+              </p>
+            </div>
+            <div class="flex items-center gap-2">
+              <button class="copy-btn px-3 py-1 rounded bg-gray-800 text-white dark:bg-gray-100 dark:text-gray-900 text-xs">
+                Copy
+              </button>
+              <span class="copy-tooltip text-xs text-green-500 hidden">Copied!</span>
+            </div>
+          </div>
 
-              <tr class="cpl-row" data-category="Networking">
-                <td class="py-2 pr-4 font-mono text-xs md:text-sm">ncpa.cpl</td>
-                <td class="py-2 pr-4">Network Connections – manage network adapters and interfaces.</td>
-                <td class="py-2 pr-4">Networking</td>
-                <td class="py-2">
-                  <button class="copy-btn inline-flex items-center gap-1 px-2 py-1 rounded bg-blue-600 text-white text-xs">
-                    📋 Copy
-                  </button>
-                  <span class="copied-tag ml-2 text-xs text-emerald-400 hidden">Copied!</span>
-                </td>
-              </tr>
+          <!-- eventvwr.msc -->
+          <div
+            class="command-row bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
+            data-command="eventvwr.msc"
+            data-description="Event Viewer"
+            data-category="WMI/Debug"
+          >
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="font-mono text-xs px-2 py-1 rounded bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+                  eventvwr.msc
+                </span>
+                <span class="text-[0.65rem] px-2 py-1 rounded-full bg-teal-100 text-teal-800 dark:bg-teal-900/40 dark:text-teal-200">
+                  🧪 WMI / Debug
+                </span>
+              </div>
+              <p class="mt-1 text-gray-700 dark:text-gray-300">
+                Opens <strong>Event Viewer</strong> to review system, application, and security logs.
+              </p>
+            </div>
+            <div class="flex items-center gap-2">
+              <button class="copy-btn px-3 py-1 rounded bg-gray-800 text-white dark:bg-gray-100 dark:text-gray-900 text-xs">
+                Copy
+              </button>
+              <span class="copy-tooltip text-xs text-green-500 hidden">Copied!</span>
+            </div>
+          </div>
 
-              <tr class="cpl-row" data-category="Security">
-                <td class="py-2 pr-4 font-mono text-xs md:text-sm">firewall.cpl</td>
-                <td class="py-2 pr-4">Windows Defender Firewall – inbound/outbound rules and profiles.</td>
-                <td class="py-2 pr-4">Security</td>
-                <td class="py-2">
-                  <button class="copy-btn inline-flex items-center gap-1 px-2 py-1 rounded bg-blue-600 text-white text-xs">
-                    📋 Copy
-                  </button>
-                  <span class="copied-tag ml-2 text-xs text-emerald-400 hidden">Copied!</span>
-                </td>
-              </tr>
-
-              <tr class="cpl-row" data-category="System">
-                <td class="py-2 pr-4 font-mono text-xs md:text-sm">sysdm.cpl</td>
-                <td class="py-2 pr-4">System Properties – computer name, performance, remote, environment vars.</td>
-                <td class="py-2 pr-4">System</td>
-                <td class="py-2">
-                  <button class="copy-btn inline-flex items-center gap-1 px-2 py-1 rounded bg-blue-600 text-white text-xs">
-                    📋 Copy
-                  </button>
-                  <span class="copied-tag ml-2 text-xs text-emerald-400 hidden">Copied!</span>
-                </td>
-              </tr>
-
-              <tr class="cpl-row" data-category="Hardware">
-                <td class="py-2 pr-4 font-mono text-xs md:text-sm">main.cpl</td>
-                <td class="py-2 pr-4">Mouse / Keyboard settings (varies by build; classic hardware controls).</td>
-                <td class="py-2 pr-4">Hardware</td>
-                <td class="py-2">
-                  <button class="copy-btn inline-flex items-center gap-1 px-2 py-1 rounded bg-blue-600 text-white text-xs">
-                    📋 Copy
-                  </button>
-                  <span class="copied-tag ml-2 text-xs text-emerald-400 hidden">Copied!</span>
-                </td>
-              </tr>
-
-              <tr class="cpl-row" data-category="Hardware">
-                <td class="py-2 pr-4 font-mono text-xs md:text-sm">mmsys.cpl</td>
-                <td class="py-2 pr-4">Sound – playback, recording devices, system sounds.</td>
-                <td class="py-2 pr-4">Hardware</td>
-                <td class="py-2">
-                  <button class="copy-btn inline-flex items-center gap-1 px-2 py-1 rounded bg-blue-600 text-white text-xs">
-                    📋 Copy
-                  </button>
-                  <span class="copied-tag ml-2 text-xs text-emerald-400 hidden">Copied!</span>
-                </td>
-              </tr>
-
-              <tr class="cpl-row" data-category="Hardware">
-                <td class="py-2 pr-4 font-mono text-xs md:text-sm">desk.cpl</td>
-                <td class="py-2 pr-4">Display settings – resolution, monitor configuration (classic).</td>
-                <td class="py-2 pr-4">Hardware</td>
-                <td class="py-2">
-                  <button class="copy-btn inline-flex items-center gap-1 px-2 py-1 rounded bg-blue-600 text-white text-xs">
-                    📋 Copy
-                  </button>
-                  <span class="copied-tag ml-2 text-xs text-emerald-400 hidden">Copied!</span>
-                </td>
-              </tr>
-
-              <tr class="cpl-row" data-category="Hardware">
-                <td class="py-2 pr-4 font-mono text-xs md:text-sm">joy.cpl</td>
-                <td class="py-2 pr-4">Game Controllers – joystick and gamepad configuration.</td>
-                <td class="py-2 pr-4">Hardware</td>
-                <td class="py-2">
-                  <button class="copy-btn inline-flex items-center gap-1 px-2 py-1 rounded bg-blue-600 text-white text-xs">
-                    📋 Copy
-                  </button>
-                  <span class="copied-tag ml-2 text-xs text-emerald-400 hidden">Copied!</span>
-                </td>
-              </tr>
-
-              <tr class="cpl-row" data-category="Date & Time">
-                <td class="py-2 pr-4 font-mono text-xs md:text-sm">timedate.cpl</td>
-                <td class="py-2 pr-4">Date and Time – time zone, internet time sync, clock.</td>
-                <td class="py-2 pr-4">Date & Time</td>
-                <td class="py-2">
-                  <button class="copy-btn inline-flex items-center gap-1 px-2 py-1 rounded bg-blue-600 text-white text-xs">
-                    📋 Copy
-                  </button>
-                  <span class="copied-tag ml-2 text-xs text-emerald-400 hidden">Copied!</span>
-                </td>
-              </tr>
-
-              <tr class="cpl-row" data-category="Region & Language">
-                <td class="py-2 pr-4 font-mono text-xs md:text-sm">intl.cpl</td>
-                <td class="py-2 pr-4">Region – formats, location, administrative language settings.</td>
-                <td class="py-2 pr-4">Region & Language</td>
-                <td class="py-2">
-                  <button class="copy-btn inline-flex items-center gap-1 px-2 py-1 rounded bg-blue-600 text-white text-xs">
-                    📋 Copy
-                  </button>
-                  <span class="copied-tag ml-2 text-xs text-emerald-400 hidden">Copied!</span>
-                </td>
-              </tr>
-
-              <tr class="cpl-row" data-category="User Accounts">
-                <td class="py-2 pr-4 font-mono text-xs md:text-sm">nusrmgr.cpl</td>
-                <td class="py-2 pr-4">User Accounts (legacy UI) on some Windows versions.</td>
-                <td class="py-2 pr-4">User Accounts</td>
-                <td class="py-2">
-                  <button class="copy-btn inline-flex items-center gap-1 px-2 py-1 rounded bg-blue-600 text-white text-xs">
-                    📋 Copy
-                  </button>
-                  <span class="copied-tag ml-2 text-xs text-emerald-400 hidden">Copied!</span>
-                </td>
-              </tr>
-
-              <tr class="cpl-row" data-category="Security">
-                <td class="py-2 pr-4 font-mono text-xs md:text-sm">wscui.cpl</td>
-                <td class="py-2 pr-4">Windows Security Center / Action Center (varies by version).</td>
-                <td class="py-2 pr-4">Security</td>
-                <td class="py-2">
-                  <button class="copy-btn inline-flex items-center gap-1 px-2 py-1 rounded bg-blue-600 text-white text-xs">
-                    📋 Copy
-                  </button>
-                  <span class="copied-tag ml-2 text-xs text-emerald-400 hidden">Copied!</span>
-                </td>
-              </tr>
-
-              <!-- MEMCM / EXTRA TOOLS SECTION -->
-              <tr id="memcm" class="cpl-row" data-category="MEMCM">
-                <td class="py-2 pr-4 font-mono text-xs md:text-sm">smscfgrc.cpl</td>
-                <td class="py-2 pr-4">
-                  MEMCM Configuration Manager control panel applet – view client config, site, actions.
-                </td>
-                <td class="py-2 pr-4">MEMCM</td>
-                <td class="py-2">
-                  <button class="copy-btn inline-flex items-center gap-1 px-2 py-1 rounded bg-blue-600 text-white text-xs">
-                    📋 Copy
-                  </button>
-                  <span class="copied-tag ml-2 text-xs text-emerald-400 hidden">Copied!</span>
-                </td>
-              </tr>
-
-              <tr class="cpl-row" data-category="Debug / Tools">
-                <td class="py-2 pr-4 font-mono text-xs md:text-sm">wbemtest</td>
-                <td class="py-2 pr-4">
-                  WMI Tester – interactively query WMI namespaces and classes (useful for MEMCM/WMI troubleshooting).
-                </td>
-                <td class="py-2 pr-4">Debug / Tools</td>
-                <td class="py-2">
-                  <button class="copy-btn inline-flex items-center gap-1 px-2 py-1 rounded bg-blue-600 text-white text-xs">
-                    📋 Copy
-                  </button>
-                  <span class="copied-tag ml-2 text-xs text-emerald-400 hidden">Copied!</span>
-                </td>
-              </tr>
-
-              <tr class="cpl-row" data-category="Debug / Tools">
-                <td class="py-2 pr-4 font-mono text-xs md:text-sm">cmtrace.exe</td>
-                <td class="py-2 pr-4">
-                  Log viewer from MEMCM toolkit – color-coded parsing of client and server logs.
-                </td>
-                <td class="py-2 pr-4">Debug / Tools</td>
-                <td class="py-2">
-                  <button class="copy-btn inline-flex items-center gap-1 px-2 py-1 rounded bg-blue-600 text-white text-xs">
-                    📋 Copy
-                  </button>
-                  <span class="copied-tag ml-2 text-xs text-emerald-400 hidden">Copied!</span>
-                </td>
-              </tr>
-
-              <tr class="cpl-row" data-category="Debug / Tools">
-                <td class="py-2 pr-4 font-mono text-xs md:text-sm">control /name Microsoft.Troubleshooting</td>
-                <td class="py-2 pr-4">
-                  Opens Troubleshooting control panel – common repair wizards and tools.
-                </td>
-                <td class="py-2 pr-4">Debug / Tools</td>
-                <td class="py-2">
-                  <button class="copy-btn inline-flex items-center gap-1 px-2 py-1 rounded bg-blue-600 text-white text-xs">
-                    📋 Copy
-                  </button>
-                  <span class="copied-tag ml-2 text-xs text-emerald-400 hidden">Copied!</span>
-                </td>
-              </tr>
-
-            </tbody>
-          </table>
         </div>
       </section>
 
     </section>
   </main>
 
-  <!-- FOOTER -->
-  <footer class="bg-gray-200 dark:bg-gray-800 text-center py-6 mt-6">
-    © 2025 tl docs
-  </footer>
-
-  <!-- THEME TOGGLE LOGIC (same behavior as home) -->
+  <!-- THEME TOGGLE + FILTER LOGIC -->
   <script>
     const toggleSwitch = document.getElementById("theme-toggle");
     const htmlEl = document.documentElement;
@@ -403,70 +729,72 @@
     toggleSwitch.addEventListener("change", () => {
       htmlEl.classList.toggle("dark");
     });
-  </script>
 
-  <!-- CPL SEARCH / FILTER / COPY LOGIC -->
-  <script>
-    const searchInput = document.getElementById('search-input');
-    const categoryFilter = document.getElementById('category-filter');
-    const rows = Array.from(document.querySelectorAll('.cpl-row'));
+    // Search + Category Filtering
+    const searchInput = document.getElementById("search");
+    const categoryFilter = document.getElementById("categoryFilter");
+    const commandRows = document.querySelectorAll(".command-row");
 
     function applyFilters() {
-      const term = (searchInput.value || '').toLowerCase();
+      const term = searchInput.value.toLowerCase();
       const category = categoryFilter.value;
 
-      rows.forEach(row => {
-        const rowText = row.innerText.toLowerCase();
-        const rowCategory = row.getAttribute('data-category') || '';
+      commandRows.forEach(row => {
+        const rowCmd = row.dataset.command.toLowerCase();
+        const rowDesc = row.dataset.description.toLowerCase();
+        const rowCat = row.dataset.category;
 
-        const matchesSearch = !term || rowText.includes(term);
-        const matchesCategory = !category || rowCategory === category;
+        const matchesSearch =
+          rowCmd.includes(term) || rowDesc.includes(term);
+
+        const matchesCategory =
+          category === "all" || rowCat === category;
 
         if (matchesSearch && matchesCategory) {
-          row.classList.remove('hidden');
+          row.style.display = "";
         } else {
-          row.classList.add('hidden');
+          row.style.display = "none";
         }
       });
     }
 
-    if (searchInput) {
-      searchInput.addEventListener('input', applyFilters);
-    }
-    if (categoryFilter) {
-      categoryFilter.addEventListener('change', applyFilters);
-    }
+    searchInput.addEventListener("input", applyFilters);
+    categoryFilter.addEventListener("change", applyFilters);
 
-    // Copy button handling with "Copied!" tag
-    const copyButtons = document.querySelectorAll('.copy-btn');
+    // Copy buttons with "Copied!" tooltip
+    const copyButtons = document.querySelectorAll(".copy-btn");
 
-    copyButtons.forEach((btn) => {
-      btn.addEventListener('click', async () => {
-        const row = btn.closest('tr');
-        const commandCell = row.querySelector('td');
-        const textToCopy = commandCell ? commandCell.innerText.trim() : '';
+    copyButtons.forEach(btn => {
+      btn.addEventListener("click", async () => {
+        const row = btn.closest(".command-row");
+        const command = row.dataset.command;
+        const tooltip = row.querySelector(".copy-tooltip");
 
-        const copiedTag = row.querySelector('.copied-tag');
-
+        // Try Clipboard API
         try {
-          if (navigator.clipboard && textToCopy) {
-            await navigator.clipboard.writeText(textToCopy);
-          }
-
-          if (copiedTag) {
-            copiedTag.classList.remove('hidden');
-            setTimeout(() => copiedTag.classList.add('hidden'), 1200);
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            await navigator.clipboard.writeText(command);
+          } else {
+            // Fallback
+            const temp = document.createElement("textarea");
+            temp.value = command;
+            document.body.appendChild(temp);
+            temp.select();
+            document.execCommand("copy");
+            document.body.removeChild(temp);
           }
         } catch (e) {
-          // Silently fail; could add fallback if needed
-          if (copiedTag) {
-            copiedTag.textContent = 'Copy failed';
-            copiedTag.classList.remove('hidden');
-            setTimeout(() => copiedTag.classList.add('hidden'), 1500);
-          }
+          console.error("Copy failed", e);
         }
+
+        // Show "Copied!" tooltip briefly
+        tooltip.classList.remove("hidden");
+        setTimeout(() => {
+          tooltip.classList.add("hidden");
+        }, 1200);
       });
     });
   </script>
+
 </body>
 </html>

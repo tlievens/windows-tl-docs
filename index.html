@@ -20,7 +20,7 @@
   <nav class="flex justify-between items-center px-6 py-4 bg-white dark:bg-gray-800 shadow-md">
     <h1 class="text-xl font-bold text-gray-800 dark:text-gray-100">tl docs</h1>
 
-    <!-- Simple Sun/Moon Slider -->
+    <!-- Sun/Moon Slider Toggle -->
     <label for="theme-toggle" class="relative inline-block w-20 h-10 cursor-pointer select-none">
       <input type="checkbox" id="theme-toggle" class="sr-only peer" />
 
@@ -28,14 +28,14 @@
       <div class="absolute inset-0 rounded-full bg-sky-300 dark:bg-gray-700 
                   peer-checked:bg-gray-700 transition-colors duration-300"></div>
 
-      <!-- Sliding icon -->
+      <!-- Icon -->
       <div class="absolute top-0.5 left-0.5 w-9 h-9 rounded-full shadow-md overflow-hidden
                   transition-all duration-300 peer-checked:translate-x-10">
 
-        <!-- Sun (light mode) -->
+        <!-- Sun (light) -->
         <img src="assets/sun.png" class="block w-full h-full object-cover dark:hidden" alt="Sun" />
 
-        <!-- Moon (dark mode) -->
+        <!-- Moon (dark) -->
         <img src="assets/moon.png" class="hidden w-full h-full object-cover dark:block" alt="Moon" />
       </div>
     </label>
@@ -52,13 +52,18 @@
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
-      <!-- MODULE 1 -->
+      <!-- MODULE 1 (UPDATED WITH CPL PNG) -->
       <div class="bg-white dark:bg-gray-800 shadow rounded-lg overflow-hidden transition-colors duration-300">
-        <img src="assets/placeholder.png" class="w-full h-48 object-cover" alt="Module 1" />
+        <img src="assets/cpl.png" class="w-full h-48 object-cover" alt="Windows CPL + Control Commands" />
         <div class="p-6">
-          <h3 class="text-xl font-bold mb-2">Module 1</h3>
-          <p class="text-gray-700 dark:text-gray-300 mb-4">Start learning with Module 1.</p>
-          <a href="modules/module1.html" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">Start Learning</a>
+          <h3 class="text-xl font-bold mb-2">Windows CPL + Control Commands</h3>
+          <p class="text-gray-700 dark:text-gray-300 mb-4">
+            Learn Windows Control Panel shortcuts, management tools, and power user commands.
+          </p>
+          <a href="modules/module1.html" 
+             class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">
+            Start Learning
+          </a>
         </div>
       </div>
 
@@ -68,7 +73,10 @@
         <div class="p-6">
           <h3 class="text-xl font-bold mb-2">Module 2</h3>
           <p class="text-gray-700 dark:text-gray-300 mb-4">Start learning with Module 2.</p>
-          <a href="modules/module2.html" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">Start Learning</a>
+          <a href="modules/module2.html" 
+             class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">
+            Start Learning
+          </a>
         </div>
       </div>
 
@@ -78,7 +86,10 @@
         <div class="p-6">
           <h3 class="text-xl font-bold mb-2">Module 3</h3>
           <p class="text-gray-700 dark:text-gray-300 mb-4">Start learning with Module 3.</p>
-          <a href="modules/module3.html" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">Start Learning</a>
+          <a href="modules/module3.html" 
+             class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">
+            Start Learning
+          </a>
         </div>
       </div>
 
@@ -90,12 +101,12 @@
     © 2025 tl docs
   </footer>
 
-  <!-- DARK MODE TOGGLE SCRIPT -->
+  <!-- THEME TOGGLE LOGIC -->
   <script>
     const toggleSwitch = document.getElementById("theme-toggle");
     const htmlEl = document.documentElement;
 
-    // Sync toggle with dark mode
+    // Sync toggle state with current theme
     toggleSwitch.checked = htmlEl.classList.contains("dark");
 
     toggleSwitch.addEventListener("change", () => {

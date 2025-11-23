@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Module 1</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Windows CPL + Control Commands</title>
 
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -13,46 +13,263 @@
 
 <body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
 
+  <!-- NAVBAR -->
   <nav class="flex justify-between items-center px-6 py-4 bg-white dark:bg-gray-800 shadow-md">
-    <a href="../index.html" class="text-xl font-bold text-gray-800 dark:text-gray-100">tl docs</a>
+    <a href="../index.html" class="text-xl font-bold text-gray-800 dark:text-gray-100">
+      tl docs
+    </a>
 
+    <!-- Sun/Moon Slider Toggle -->
     <label for="theme-toggle" class="relative inline-block w-20 h-10 cursor-pointer select-none">
-      <input type="checkbox" id="theme-toggle" class="sr-only peer">
+      <input type="checkbox" id="theme-toggle" class="sr-only peer" />
 
-      <div class="absolute inset-0 rounded-full bg-sky-300 dark:bg-gray-700 peer-checked:bg-gray-700 transition-colors"></div>
+      <!-- Track -->
+      <div class="absolute inset-0 rounded-full bg-sky-300 dark:bg-gray-700 
+                  peer-checked:bg-gray-700 transition-colors duration-300"></div>
 
-      <div class="absolute top-0.5 left-0.5 w-9 h-9 rounded-full shadow-md overflow-hidden transition-all duration-300 peer-checked:translate-x-10">
-        <img src="../assets/sun.png" class="block w-full h-full object-cover dark:hidden">
-        <img src="../assets/moon.png" class="hidden w-full h-full object-cover dark:block">
+      <!-- Icon -->
+      <div class="absolute top-0.5 left-0.5 w-9 h-9 rounded-full shadow-md overflow-hidden
+                  transition-all duration-300 peer-checked:translate-x-10">
+        <img src="../assets/sun.png" class="block w-full h-full object-cover dark:hidden" />
+        <img src="../assets/moon.png" class="hidden w-full h-full object-cover dark:block" />
       </div>
     </label>
   </nav>
 
-  <main class="max-w-3xl mx-auto mt-10 px-4">
+  <!-- PAGE HEADER -->
+  <section class="py-12 text-center">
+    <img src="../assets/cpl.png" class="mx-auto w-48 h-48 object-contain mb-6" alt="CPL Icon">
+    <h1 class="text-4xl font-bold">Windows CPL + Control Commands</h1>
+    <p class="text-gray-600 dark:text-gray-300 mt-3 max-w-2xl mx-auto">
+      A full reference of Windows 10/11 `.cpl` Control Panel commands with descriptions
+      and one-click copy buttons.
+    </p>
+  </section>
 
-    <h1 class="text-4xl font-bold mb-8">Module 2</h1>
+  <!-- COMMAND LIST -->
+  <section class="max-w-4xl mx-auto px-4 pb-20">
 
-    <details class="mb-4 bg-white dark:bg-gray-800 rounded p-4">
-      <summary class="cursor-pointer text-xl font-semibold">Step 1: Overview</summary>
-      <p class="mt-3">Your Module 2 intro content here.</p>
-    </details>
+    <h2 class="text-2xl font-bold mb-6">Available Windows Control Panel Commands</h2>
 
-    <details class="mb-4 bg-white dark:bg-gray-800 rounded p-4">
-      <summary class="cursor-pointer text-xl font-semibold">Step 2: Setup</summary>
-      <p class="mt-3">Your setup details here.</p>
-    </details>
+    <div class="space-y-4">
 
-    <details class="mb-4 bg-white dark:bg-gray-800 rounded p-4">
-      <summary class="cursor-pointer text-xl font-semibold">Step 3: Practice</summary>
-      <p class="mt-3">Practice tasks go here.</p>
-    </details>
+      <!-- ROW TEMPLATE (repeated) -->
+      <!-- control -->
+      <div class="flex justify-between items-center bg-white dark:bg-gray-800 p-4 rounded shadow">
+        <div>
+          <p class="font-mono text-lg">control</p>
+          <p class="text-sm text-gray-600 dark:text-gray-400">Opens the Control Panel home</p>
+        </div>
+        <button onclick="copyText('control')" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded">
+          Copy
+        </button>
+      </div>
 
-  </main>
+      <!-- access.cpl -->
+      <div class="flex justify-between items-center bg-white dark:bg-gray-800 p-4 rounded shadow">
+        <div>
+          <p class="font-mono text-lg">access.cpl</p>
+          <p class="text-sm text-gray-600 dark:text-gray-400">Ease of Access Center</p>
+        </div>
+        <button onclick="copyText('access.cpl')" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded">
+          Copy
+        </button>
+      </div>
 
+      <!-- appwiz.cpl -->
+      <div class="flex justify-between items-center bg-white dark:bg-gray-800 p-4 rounded shadow">
+        <div>
+          <p class="font-mono text-lg">appwiz.cpl</p>
+          <p class="text-sm text-gray-600 dark:text-gray-400">Programs & Features (Uninstall Programs)</p>
+        </div>
+        <button onclick="copyText('appwiz.cpl')" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded">
+          Copy
+        </button>
+      </div>
+
+      <!-- bthprops.cpl -->
+      <div class="flex justify-between items-center bg-white dark:bg-gray-800 p-4 rounded shadow">
+        <div>
+          <p class="font-mono text-lg">bthprops.cpl</p>
+          <p class="text-sm text-gray-600 dark:text-gray-400">Bluetooth Settings</p>
+        </div>
+        <button onclick="copyText('bthprops.cpl')" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded">
+          Copy
+        </button>
+      </div>
+
+      <!-- desk.cpl -->
+      <div class="flex justify-between items-center bg-white dark:bg-gray-800 p-4 rounded shadow">
+        <div>
+          <p class="font-mono text-lg">desk.cpl</p>
+          <p class="text-sm text-gray-600 dark:text-gray-400">Display Settings (Resolution)</p>
+        </div>
+        <button onclick="copyText('desk.cpl')" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded">
+          Copy
+        </button>
+      </div>
+
+      <!-- firewall.cpl -->
+      <div class="flex justify-between items-center bg-white dark:bg-gray-800 p-4 rounded shadow">
+        <div>
+          <p class="font-mono text-lg">firewall.cpl</p>
+          <p class="text-sm text-gray-600 dark:text-gray-400">Windows Defender Firewall</p>
+        </div>
+        <button onclick="copyText('firewall.cpl')" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded">
+          Copy
+        </button>
+      </div>
+
+      <!-- inetcpl.cpl -->
+      <div class="flex justify-between items-center bg-white dark:bg-gray-800 p-4 rounded shadow">
+        <div>
+          <p class="font-mono text-lg">inetcpl.cpl</p>
+          <p class="text-sm text-gray-600 dark:text-gray-400">Internet Options</p>
+        </div>
+        <button onclick="copyText('inetcpl.cpl')" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded">
+          Copy
+        </button>
+      </div>
+
+      <!-- intl.cpl -->
+      <div class="flex justify-between items-center bg-white dark:bg-gray-800 p-4 rounded shadow">
+        <div>
+          <p class="font-mono text-lg">intl.cpl</p>
+          <p class="text-sm text-gray-600 dark:text-gray-400">Region Settings</p>
+        </div>
+        <button onclick="copyText('intl.cpl')" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded">
+          Copy
+        </button>
+      </div>
+
+      <!-- joy.cpl -->
+      <div class="flex justify-between items-center bg-white dark:bg-gray-800 p-4 rounded shadow">
+        <div>
+          <p class="font-mono text-lg">joy.cpl</p>
+          <p class="text-sm text-gray-600 dark:text-gray-400">Game Controllers</p>
+        </div>
+        <button onclick="copyText('joy.cpl')" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded">
+          Copy
+        </button>
+      </div>
+
+      <!-- main.cpl -->
+      <div class="flex justify-between items-center bg-white dark:bg-gray-800 p-4 rounded shadow">
+        <div>
+          <p class="font-mono text-lg">main.cpl</p>
+          <p class="text-sm text-gray-600 dark:text-gray-400">Mouse Settings</p>
+        </div>
+        <button onclick="copyText('main.cpl')" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded">
+          Copy
+        </button>
+      </div>
+
+      <!-- mmsys.cpl -->
+      <div class="flex justify-between items-center bg-white dark:bg-gray-800 p-4 rounded shadow">
+        <div>
+          <p class="font-mono text-lg">mmsys.cpl</p>
+          <p class="text-sm text-gray-600 dark:text-gray-400">Sound Settings</p>
+        </div>
+        <button onclick="copyText('mmsys.cpl')" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded">
+          Copy
+        </button>
+      </div>
+
+      <!-- ncpa.cpl -->
+      <div class="flex justify-between items-center bg-white dark:bg-gray-800 p-4 rounded shadow">
+        <div>
+          <p class="font-mono text-lg">ncpa.cpl</p>
+          <p class="text-sm text-gray-600 dark:text-gray-400">Network Connections</p>
+        </div>
+        <button onclick="copyText('ncpa.cpl')" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded">
+          Copy
+        </button>
+      </div>
+
+      <!-- powercfg.cpl -->
+      <div class="flex justify-between items-center bg-white dark:bg-gray-800 p-4 rounded shadow">
+        <div>
+          <p class="font-mono text-lg">powercfg.cpl</p>
+          <p class="text-sm text-gray-600 dark:text-gray-400">Power Options</p>
+        </div>
+        <button onclick="copyText('powercfg.cpl')" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded">
+          Copy
+        </button>
+      </div>
+
+      <!-- sysdm.cpl -->
+      <div class="flex justify-between items-center bg-white dark:bg-gray-800 p-4 rounded shadow">
+        <div>
+          <p class="font-mono text-lg">sysdm.cpl</p>
+          <p class="text-sm text-gray-600 dark:text-gray-400">System Properties</p>
+        </div>
+        <button onclick="copyText('sysdm.cpl')" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded">
+          Copy
+        </button>
+      </div>
+
+      <!-- tabletpc.cpl -->
+      <div class="flex justify-between items-center bg-white dark:bg-gray-800 p-4 rounded shadow">
+        <div>
+          <p class="font-mono text-lg">tabletpc.cpl</p>
+          <p class="text-sm text-gray-600 dark:text-gray-400">Pen & Touch Settings</p>
+        </div>
+        <button onclick="copyText('tabletpc.cpl')" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded">
+          Copy
+        </button>
+      </div>
+
+      <!-- timedate.cpl -->
+      <div class="flex justify-between items-center bg-white dark:bg-gray-800 p-4 rounded shadow">
+        <div>
+          <p class="font-mono text-lg">timedate.cpl</p>
+          <p class="text-sm text-gray-600 dark:text-gray-400">Date & Time Settings</p>
+        </div>
+        <button onclick="copyText('timedate.cpl')" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded">
+          Copy
+        </button>
+      </div>
+
+      <!-- hdwwiz.cpl -->
+      <div class="flex justify-between items-center bg-white dark:bg-gray-800 p-4 rounded shadow">
+        <div>
+          <p class="font-mono text-lg">hdwwiz.cpl</p>
+          <p class="text-sm text-gray-600 dark:text-gray-400">Add Hardware Wizard</p>
+        </div>
+        <button onclick="copyText('hdwwiz.cpl')" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded">
+          Copy
+        </button>
+      </div>
+
+      <!-- telephon.cpl -->
+      <div class="flex justify-between items-center bg-white dark:bg-gray-800 p-4 rounded shadow">
+        <div>
+          <p class="font-mono text-lg">telephon.cpl</p>
+          <p class="text-sm text-gray-600 dark:text-gray-400">Phone & Modem Settings</p>
+        </div>
+        <button onclick="copyText('telephon.cpl')" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded">
+          Copy
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- COPY SCRIPT -->
+  <script>
+    function copyText(text) {
+      navigator.clipboard.writeText(text);
+      alert("Copied: " + text);
+    }
+  </script>
+
+  <!-- THEME TOGGLE LOGIC -->
   <script>
     const toggleSwitch = document.getElementById("theme-toggle");
     const htmlEl = document.documentElement;
+
     toggleSwitch.checked = htmlEl.classList.contains("dark");
+
     toggleSwitch.addEventListener("change", () => {
       htmlEl.classList.toggle("dark");
     });

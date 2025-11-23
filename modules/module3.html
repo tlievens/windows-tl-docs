@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Module 1</title>
+  <title>Module 3</title>
 
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -11,33 +11,52 @@
   </script>
 </head>
 
-<body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 p-8 transition-colors">
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
 
-  <a href="../index.html" class="text-blue-400 underline mb-6 inline-block">← Back</a>
+  <nav class="flex justify-between items-center px-6 py-4 bg-white dark:bg-gray-800 shadow-md">
+    <a href="../index.html" class="text-xl font-bold text-gray-800 dark:text-gray-100">tl docs</a>
 
-  <h1 class="text-3xl font-bold mb-6">Module 1</h1>
+    <label for="theme-toggle" class="relative inline-block w-20 h-10 cursor-pointer select-none">
+      <input type="checkbox" id="theme-toggle" class="sr-only peer">
 
-  <!-- Collapsible Step -->
-  <details class="mb-4 bg-white dark:bg-gray-800 rounded p-4">
-    <summary class="cursor-pointer text-xl font-semibold">Step 1: Introduction</summary>
-    <p class="mt-3 text-gray-700 dark:text-gray-300">
-      This is your step content...
-    </p>
-  </details>
+      <div class="absolute inset-0 rounded-full bg-sky-300 dark:bg-gray-700 peer-checked:bg-gray-700 transition-colors"></div>
 
-  <details class="mb-4 bg-white dark:bg-gray-800 rounded p-4">
-    <summary class="cursor-pointer text-xl font-semibold">Step 2: Setup</summary>
-    <p class="mt-3 text-gray-700 dark:text-gray-300">
-      Put your setup steps here.
-    </p>
-  </details>
+      <div class="absolute top-0.5 left-0.5 w-9 h-9 rounded-full shadow-md overflow-hidden transition-all duration-300 peer-checked:translate-x-10">
+        <img src="../assets/sun.png" class="block w-full h-full object-cover dark:hidden">
+        <img src="../assets/moon.png" class="hidden w-full h-full object-cover dark:block">
+      </div>
+    </label>
+  </nav>
 
-  <details class="mb-4 bg-white dark:bg-gray-800 rounded p-4">
-    <summary class="cursor-pointer text-xl font-semibold">Step 3: Practice</summary>
-    <p class="mt-3 text-gray-700 dark:text-gray-300">
-      Add more steps as needed.
-    </p>
-  </details>
+  <main class="max-w-3xl mx-auto mt-10 px-4">
+
+    <h1 class="text-4xl font-bold mb-8">Module 3</h1>
+
+    <details class="mb-4 bg-white dark:bg-gray-800 rounded p-4">
+      <summary class="cursor-pointer text-xl font-semibold">Step 1: Overview</summary>
+      <p class="mt-3">Module 3 overview goes here.</p>
+    </details>
+
+    <details class="mb-4 bg-white dark:bg-gray-800 rounded p-4">
+      <summary class="cursor-pointer text-xl font-semibold">Step 2: Setup</summary>
+      <p class="mt-3">Setup instructions here.</p>
+    </details>
+
+    <details class="mb-4 bg-white dark:bg-gray-800 rounded p-4">
+      <summary class="cursor-pointer text-xl font-semibold">Step 3: Practice</summary>
+      <p class="mt-3">Practice lessons here.</p>
+    </details>
+
+  </main>
+
+  <script>
+    const toggleSwitch = document.getElementById("theme-toggle");
+    const htmlEl = document.documentElement;
+    toggleSwitch.checked = htmlEl.classList.contains("dark");
+    toggleSwitch.addEventListener("change", () => {
+      htmlEl.classList.toggle("dark");
+    });
+  </script>
 
 </body>
 </html>

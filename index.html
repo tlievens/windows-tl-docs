@@ -3,121 +3,235 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>tl docs</title>
+  <title>Helpful Windows Documentation | tl docs</title>
 
-  <!-- Tailwind -->
+  <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
-      darkMode: "class"
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            winblue: {
+              light: "#2563eb",
+              DEFAULT: "#2563eb",
+              accent: "#0A84FF"
+            }
+          }
+        }
+      }
     };
   </script>
 </head>
 
-<body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 font-sans transition-colors duration-300">
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 font-sans antialiased transition-colors duration-300">
 
   <!-- NAVBAR -->
-  <nav class="flex justify-between items-center px-6 py-4 bg-white dark:bg-gray-800 shadow-md">
-    <h1 class="text-xl font-bold text-gray-800 dark:text-gray-100">tl docs</h1>
+  <nav class="flex items-center justify-between px-6 py-4 bg-white/80 dark:bg-gray-900/80 backdrop-blur shadow-sm border-b border-gray-200/80 dark:border-gray-800/80">
+    <div class="flex items-center gap-2">
+      <span class="inline-flex h-8 w-8 items-center justify-center rounded-2xl bg-gradient-to-tr from-winblue-light to-winblue-accent text-white text-xl shadow-sm">
+        🪟
+      </span>
+      <div class="flex flex-col leading-tight">
+        <span class="font-semibold text-sm sm:text-base">tl docs</span>
+        <span class="text-[0.7rem] text-gray-500 dark:text-gray-400">
+          Helpful Windows Documentation
+        </span>
+      </div>
+    </div>
 
     <!-- Sun/Moon Slider Toggle -->
     <label for="theme-toggle" class="relative inline-block w-20 h-10 cursor-pointer select-none">
       <input type="checkbox" id="theme-toggle" class="sr-only peer" />
 
-      <!-- Track -->
-      <div class="absolute inset-0 rounded-full bg-sky-300 dark:bg-gray-700 
-                  peer-checked:bg-gray-700 transition-colors duration-300"></div>
+      <div class="absolute inset-0 rounded-full bg-sky-200/70 dark:bg-gray-700 peer-checked:bg-gray-700 transition-colors duration-300"></div>
 
-      <!-- Icon -->
-      <div class="absolute top-0.5 left-0.5 w-9 h-9 rounded-full shadow-md overflow-hidden
-                  transition-all duration-300 peer-checked:translate-x-10">
-
-        <!-- Sun (light) -->
-        <img src="assets/sun.png" class="block w-full h-full object-cover dark:hidden" alt="Sun" />
-
-        <!-- Moon (dark) -->
-        <img src="assets/moon.png" class="hidden w-full h-full object-cover dark:block" alt="Moon" />
+      <div
+        class="absolute top-0.5 left-0.5 w-9 h-9 rounded-full shadow-md overflow-hidden
+               bg-white dark:bg-gray-900 flex items-center justify-center
+               text-yellow-400 dark:text-sky-300
+               transition-all duration-300 peer-checked:translate-x-10"
+      >
+        <span class="block dark:hidden text-xl">☀️</span>
+        <span class="hidden dark:block text-xl">🌙</span>
       </div>
     </label>
   </nav>
 
-  <!-- HERO -->
-  <section class="py-20 text-center">
-    <h1 class="text-5xl font-bold">tl docs</h1>
-  </section>
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-10">
+    
+    <!-- HERO TITLE -->
+    <section class="text-center space-y-2">
+      <h1 class="text-3xl sm:text-4xl font-bold tracking-tight">
+        Helpful Windows Documentation
+      </h1>
+      <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300">
+        A small hub for Windows reference modules, quick commands, and tooling notes.
+      </p>
+    </section>
 
-  <!-- MODULES SECTION -->
-  <section class="max-w-6xl mx-auto px-4 pb-20">
-    <h2 class="text-3xl font-bold mb-8">Modules</h2>
+    <!-- MODULE LAUNCHER -->
+    <section class="flex justify-center">
+      <div
+        class="w-full max-w-3xl rounded-3xl border border-sky-200/70 dark:border-sky-900/80 shadow-sm
+               bg-gradient-to-br from-sky-200 via-sky-300 to-blue-300
+               dark:from-slate-900 dark:via-slate-950 dark:to-sky-900
+               px-5 sm:px-8 py-5 sm:py-6
+               flex flex-col md:flex-row items-center md:items-stretch justify-between gap-4"
+      >
+        <div class="flex items-center gap-4">
+          <div
+            class="hidden sm:flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center
+                   rounded-2xl bg-black/10 dark:bg-white/10 border border-black/20 dark:border-white/20 shadow-md text-2xl"
+          >
+            ⚡
+          </div>
+          <div class="text-left space-y-1">
+            <h2 class="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white">
+              Module Launcher
+            </h2>
+            <p
+              id="launcher-tagline"
+              class="text-xs sm:text-sm text-gray-900 dark:text-white/80 max-w-md"
+            >
+              Searchable and filterable list of classic CPL commands, MEMCM/WMI helpers, and more.
+            </p>
+          </div>
+        </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- VERSION BADGE -->
+        <div class="flex items-end">
+          <div class="inline-flex items-center gap-2 rounded-full bg-black/10 dark:bg-white/10 px-3 py-1.5 border border-black/20 dark:border-white/20 shadow-sm text-xs sm:text-sm">
+            <span class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-black/10 dark:bg-white/10 text-[0.8rem]">
+              🪟
+            </span>
+            <div class="flex flex-col leading-tight text-gray-900 dark:text-white">
+              <span class="font-semibold">tl docs</span>
+              <span class="text-[0.65rem] opacity-80">
+                version v0.1
+              </span>
+            </div>
+          </div>
+        </div>
 
-      <!-- MODULE 1 — FULL CLICKABLE TILE -->
-      <a href="modules/module1.html" 
-         class="block bg-white dark:bg-gray-800 shadow rounded-lg overflow-hidden transition-colors duration-300 text-center hover:opacity-90">
+      </div>
+    </section>
 
-        <!-- Full Image -->
-        <img 
-          src="assets/cpl.png" 
-          alt="Windows CPL + Control Commands"
-          class="w-full h-auto"
-          style="max-width: 1000px; margin-left: auto; margin-right: auto;"
+    <!-- MODULE GRID SECTION HEADER -->
+    <section id="modules" class="space-y-4">
+      <div>
+        <h2 class="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-white">
+          Pick a module below:
+        </h2>
+      </div>
+
+      <!-- MODULE GRID -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
+
+        <!-- MODULE 1 -->
+        <a
+          href="modules/module1.html"
+          class="group relative rounded-3xl overflow-hidden shadow-sm border border-sky-200/70 dark:border-sky-900/80
+                 bg-gradient-to-br from-sky-200 via-sky-300 to-blue-300
+                 dark:from-slate-900 dark:via-slate-950 dark:to-sky-900"
         >
+          <div class="h-[260px] flex flex-col justify-between p-4 sm:p-5 bg-white/10 backdrop-blur-sm">
 
-        <!-- Label -->
-        <div class="p-4">
-          <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">
-            Windows CPL + Control Commands
-          </h3>
+            <div class="space-y-1.5">
+              <h3 class="text-base sm:text-lg font-semibold text-gray-900 dark:text-white">
+                Windows CPL + Control Commands
+              </h3>
+              <p class="text-xs sm:text-sm text-gray-900 dark:text-white/80 max-w-md">
+                Searchable and filterable list of classic CPL commands, MEMCM/WMI helpers, and more.
+              </p>
+            </div>
+
+            <div class="flex items-center justify-between pt-3 text-[0.7rem] sm:text-xs text-gray-900 dark:text-white/80">
+              <span class="inline-flex items-center gap-1">
+                <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
+                Active module
+              </span>
+              <span class="inline-flex items-center gap-1 group-hover:translate-x-0.5 transition-transform">
+                Open module ➜
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <!-- MODULE 2 -->
+        <div
+          class="rounded-3xl overflow-hidden shadow-sm border border-sky-200/40 dark:border-sky-900/60
+                 bg-gradient-to-br from-sky-200 via-sky-300 to-blue-300
+                 dark:from-sky-800/90 dark:to-blue-900/95"
+        >
+          <div class="h-[260px] flex flex-col justify-between p-4 sm:p-5 bg-white/10 backdrop-blur-sm">
+
+            <div class="space-y-1.5">
+              <h3 class="text-base sm:text-lg font-semibold text-gray-900 dark:text-white">
+                Coming soon
+              </h3>
+              <p class="text-xs sm:text-sm text-gray-900 dark:text-white/80">
+                Placeholder for another module.
+              </p>
+            </div>
+
+            <div class="flex justify-between text-xs text-gray-900 dark:text-white/80">
+              <span>Reserved</span>
+              <span>Draft</span>
+            </div>
+          </div>
         </div>
 
-      </a>
+        <!-- MODULE 3 -->
+        <div
+          class="rounded-3xl overflow-hidden shadow-sm border border-sky-200/40 dark:border-sky-900/60
+                 bg-gradient-to-br from-sky-200 via-sky-300 to-blue-300
+                 dark:from-sky-800/90 dark:to-blue-900/95"
+        >
+          <div class="h-[260px] flex flex-col justify-between p-4 sm:p-5 bg-white/10 backdrop-blur-sm">
 
-      <!-- MODULE 2 -->
-      <div class="bg-white dark:bg-gray-800 shadow rounded-lg overflow-hidden transition-colors duration-300">
-        <img src="assets/placeholder.png" class="w-full h-48 object-cover" alt="Module 2" />
-        <div class="p-6">
-          <h3 class="text-xl font-bold mb-2">Module 2</h3>
-          <p class="text-gray-700 dark:text-gray-300 mb-4">Start learning with Module 2.</p>
-          <a href="modules/module2.html" 
-             class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">
-            Start Learning
-          </a>
+            <div class="space-y-1.5">
+              <h3 class="text-base sm:text-lg font-semibold text-gray-900 dark:text-white">
+                Experiment slot
+              </h3>
+              <p class="text-xs sm:text-sm text-gray-900 dark:text-white/80">
+                A playground for future module ideas.
+              </p>
+            </div>
+
+            <div class="flex justify-between text-xs text-gray-900 dark:text-white/80">
+              <span>Unlimited modules</span>
+              <span>Flexible grid</span>
+            </div>
+          </div>
         </div>
+
       </div>
-
-      <!-- MODULE 3 -->
-      <div class="bg-white dark:bg-gray-800 shadow rounded-lg overflow-hidden transition-colors duration-300">
-        <img src="assets/placeholder.png" class="w-full h-48 object-cover" alt="Module 3" />
-        <div class="p-6">
-          <h3 class="text-xl font-bold mb-2">Module 3</h3>
-          <p class="text-gray-700 dark:text-gray-300 mb-4">Start learning with Module 3.</p>
-          <a href="modules/module3.html" 
-             class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">
-            Start Learning
-          </a>
-        </div>
-      </div>
-
-    </div>
-  </section>
+    </section>
+  </main>
 
   <!-- FOOTER -->
-  <footer class="bg-gray-200 dark:bg-gray-800 text-center py-6">
-    © 2025 tl docs
+  <footer class="mt-8 border-t border-gray-200 dark:border-gray-800 py-6 text-center text-xs text-gray-500 dark:text-gray-400">
+    tl docs • my attempt at being a power user • © 2025
   </footer>
 
-  <!-- THEME TOGGLE LOGIC -->
+  <!-- THEME TOGGLE + DYNAMIC TAGLINE -->
   <script>
     const toggleSwitch = document.getElementById("theme-toggle");
     const htmlEl = document.documentElement;
 
-    // Sync toggle state with current theme
     toggleSwitch.checked = htmlEl.classList.contains("dark");
+    toggleSwitch.addEventListener("change", () => htmlEl.classList.toggle("dark"));
 
-    toggleSwitch.addEventListener("change", () => {
-      htmlEl.classList.toggle("dark");
-    });
+    const taglines = [
+      "Searchable and filterable list of classic CPL commands, MEMCM/WMI helpers, and more.",
+      "Quick-launch classic applets, MEMCM helpers, and useful debug tools.",
+      "Your tiny hub for Windows administrative shortcuts."
+    ];
+
+    const taglineEl = document.getElementById("launcher-tagline");
+    taglineEl.textContent = taglines[Math.floor(Math.random() * taglines.length)];
   </script>
 
 </body>

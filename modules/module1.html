@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Windows CPL + Control Commands | tl docs</title>
+  <title>Windows CPL + Control Commands – tl docs</title>
 
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -22,455 +22,451 @@
       tl docs
     </a>
 
-    <!-- Sun/Moon Slider Toggle (same assets as home) -->
+    <!-- Sun/Moon Slider Toggle -->
     <label for="theme-toggle" class="relative inline-block w-20 h-10 cursor-pointer select-none">
       <input type="checkbox" id="theme-toggle" class="sr-only peer" />
 
       <!-- Track -->
-      <div class="absolute inset-0 rounded-full bg-sky-300 dark:bg-gray-700 
+      <div class="absolute inset-0 rounded-full bg-sky-300 dark:bg-gray-700
                   peer-checked:bg-gray-700"></div>
 
-      <!-- Thumb + icon -->
+      <!-- Icon -->
       <div class="absolute top-0.5 left-0.5 w-9 h-9 rounded-full shadow-md overflow-hidden
                   peer-checked:translate-x-10">
+
         <!-- Sun (light) -->
-        <img src="../assets/sun.png" class="block w-full h-full object-cover dark:hidden" alt="Sun" />
+        <img src="../assets/sun.png"
+             class="block w-full h-full object-cover dark:hidden"
+             alt="Sun" />
+
         <!-- Moon (dark) -->
-        <img src="../assets/moon.png" class="hidden w-full h-full object-cover dark:block" alt="Moon" />
+        <img src="../assets/moon.png"
+             class="hidden w-full h-full object-cover dark:block"
+             alt="Moon" />
       </div>
     </label>
   </nav>
 
-  <!-- HERO -->
-  <section class="py-12 text-center border-b border-gray-200 dark:border-gray-700">
-    <h1 class="text-3xl md:text-4xl font-bold mb-3">
-      🖥️ Windows CPL + Control Commands
-    </h1>
-    <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-      Quick-launch Control Panel applets and tools using <code class="px-2 py-0.5 rounded bg-gray-200 dark:bg-gray-700">.cpl</code>
-      and <code class="px-2 py-0.5 rounded bg-gray-200 dark:bg-gray-700">control</code> commands.
-    </p>
-  </section>
-
-  <!-- MAIN LAYOUT -->
-  <main class="max-w-6xl mx-auto px-4 py-10 md:grid md:grid-cols-4 gap-8">
+  <!-- PAGE WRAPPER -->
+  <main class="max-w-6xl mx-auto px-4 py-10 flex flex-col md:flex-row gap-8">
 
     <!-- SIDEBAR NAV -->
-    <aside class="mb-8 md:mb-0 md:col-span-1 md:sticky md:top-24 space-y-4">
-      <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-4">
-        <h2 class="font-semibold mb-2 flex items-center gap-2">
-          📚 Navigation
-        </h2>
-        <nav class="space-y-1 text-sm">
-          <a href="#overview" class="block text-blue-500 hover:underline">Overview</a>
-          <a href="#filters" class="block text-blue-500 hover:underline">Search & Filters</a>
-          <a href="#commands" class="block text-blue-500 hover:underline">All CPL Commands</a>
-          <a href="#tips" class="block text-blue-500 hover:underline">Tips & Notes</a>
-        </nav>
-      </div>
-
-      <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-4 text-sm">
-        <h3 class="font-semibold mb-2 flex items-center gap-2">
-          💡 Quick usage
-        </h3>
-        <p class="text-gray-700 dark:text-gray-300 mb-1">
-          Press <span class="font-mono">⊞ Win + R</span>, type the command, then hit <span class="font-mono">Enter</span>.
-        </p>
-        <p class="text-gray-700 dark:text-gray-300">
-          The copy buttons below put the <span class="font-mono">control &lt;file.cpl&gt;</span> command on your clipboard.
-        </p>
-      </div>
+    <aside class="md:w-64 bg-white dark:bg-gray-800 rounded-lg shadow p-4 h-fit">
+      <h2 class="text-lg font-semibold mb-3 flex items-center gap-2">
+        🧭 Navigation
+      </h2>
+      <nav class="space-y-2 text-sm">
+        <a href="#overview" class="block text-gray-700 dark:text-gray-200 hover:text-blue-500">
+          📋 Overview
+        </a>
+        <a href="#filters" class="block text-gray-700 dark:text-gray-200 hover:text-blue-500">
+          🔍 Search & Filters
+        </a>
+        <a href="#commands" class="block text-gray-700 dark:text-gray-200 hover:text-blue-500">
+          🧮 All CPL Commands
+        </a>
+        <a href="#memcm" class="block text-gray-700 dark:text-gray-200 hover:text-blue-500">
+          🧱 MEMCM & Debug Tools
+        </a>
+      </nav>
     </aside>
 
     <!-- MAIN CONTENT -->
-    <section class="md:col-span-3 space-y-10">
+    <section class="flex-1 space-y-8">
 
-      <!-- OVERVIEW -->
-      <section id="overview" class="space-y-3">
-        <h2 class="text-2xl font-semibold flex items-center gap-2">
-          🧭 Overview
-        </h2>
-        <p class="text-gray-700 dark:text-gray-300">
-          This module lists common Windows <strong>.cpl</strong> applets and related Control Panel commands,
-          grouped by category (Networking, Security, Hardware, System, User Accounts, MEMCM, and more).
-        </p>
+      <!-- HERO / HEADER -->
+      <section id="overview" class="bg-white dark:bg-gray-800 rounded-lg shadow p-6 flex flex-col md:flex-row gap-6 items-center">
+        <div class="w-32 h-32 md:w-40 md:h-40 flex-shrink-0">
+          <img src="../assets/cpl.png"
+               alt="Windows CPL + Control Commands"
+               class="w-full h-full object-contain rounded" />
+        </div>
+        <div>
+          <h1 class="text-2xl md:text-3xl font-bold mb-2 flex items-center gap-2">
+            🪟 Windows CPL + Control Commands
+          </h1>
+          <p class="text-sm text-gray-700 dark:text-gray-300 mb-2">
+            This module covers classic <code>.cpl</code> Control Panel applets and related tools
+            so you can launch key Windows configuration panels quickly from <code>Run</code>, a shortcut,
+            or scripts.
+          </p>
+          <p class="text-sm text-gray-700 dark:text-gray-300">
+            Use the search box 🔎, category filter 🧩, and one-click copy 📋 to explore and use these commands.
+          </p>
+        </div>
       </section>
 
       <!-- FILTERS -->
-      <section id="filters" class="space-y-4">
-        <h2 class="text-2xl font-semibold flex items-center gap-2">
+      <section id="filters" class="bg-white dark:bg-gray-800 rounded-lg shadow p-6 space-y-4">
+        <h2 class="text-xl font-semibold mb-2 flex items-center gap-2">
           🔍 Search & Filter
         </h2>
 
-        <div class="grid md:grid-cols-3 gap-4">
+        <div class="flex flex-col md:flex-row gap-4">
           <!-- Search box -->
-          <div class="md:col-span-2">
-            <label class="block text-sm font-medium mb-1" for="search-input">
-              Search commands (name, file, description) 🔎
+          <div class="flex-1">
+            <label for="search-input" class="block text-sm font-medium mb-1">
+              Search commands
             </label>
             <input
               id="search-input"
               type="text"
-              placeholder="e.g. network, firewall, sysdm.cpl"
-              class="w-full rounded-md border border-gray-300 dark:border-gray-700
-                     bg-white dark:bg-gray-800 px-3 py-2 text-sm
-                     focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Search (e.g. appwiz, network, MEMCM)…"
+              class="w-full rounded border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 px-3 py-2 text-sm"
             />
           </div>
 
           <!-- Category filter -->
-          <div>
-            <label class="block text-sm font-medium mb-1" for="category-filter">
-              Category filter 🏷️
+          <div class="w-full md:w-60">
+            <label for="category-filter" class="block text-sm font-medium mb-1">
+              Category 🧩
             </label>
             <select
               id="category-filter"
-              class="w-full rounded-md border border-gray-300 dark:border-gray-700
-                     bg-white dark:bg-gray-800 px-3 py-2 text-sm
-                     focus:outline-none focus:ring-2 focus:ring-blue-500"
+              class="w-full rounded border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 px-3 py-2 text-sm"
             >
-              <option value="all">All categories</option>
-              <option value="Networking">🌐 Networking</option>
-              <option value="Security">🔐 Security</option>
-              <option value="Hardware">🖱️ Hardware</option>
-              <option value="System">⚙️ System</option>
-              <option value="User Accounts">👤 User Accounts</option>
-              <option value="MEMCM">📦 MEMCM</option>
-              <option value="Other">🧩 Other / Misc</option>
+              <option value="">All categories</option>
+              <option value="System">System</option>
+              <option value="Programs">Programs</option>
+              <option value="Networking">Networking</option>
+              <option value="Hardware">Hardware</option>
+              <option value="Security">Security</option>
+              <option value="Date & Time">Date & Time</option>
+              <option value="Region & Language">Region & Language</option>
+              <option value="User Accounts">User Accounts</option>
+              <option value="MEMCM">MEMCM</option>
+              <option value="Debug / Tools">Debug / Tools</option>
+              <option value="Other">Other</option>
             </select>
           </div>
         </div>
       </section>
 
-      <!-- COMMANDS LIST -->
-      <section id="commands" class="space-y-6">
-        <h2 class="text-2xl font-semibold flex items-center gap-2">
-          📋 All CPL Commands
+      <!-- COMMANDS TABLE -->
+      <section id="commands" class="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
+        <h2 class="text-xl font-semibold mb-4 flex items-center gap-2">
+          🧮 Windows CPL Commands
         </h2>
-        <p class="text-gray-700 dark:text-gray-300 text-sm mb-4">
-          Click <span class="font-mono">Copy</span> to copy the full
-          <span class="font-mono">control &lt;file.cpl&gt;</span> command.  
-          Use the search box and category filter to narrow down the list.
+        <p class="text-sm text-gray-700 dark:text-gray-300 mb-4">
+          Click the <span class="inline-flex items-center gap-1">📋 <span>Copy</span></span> button
+          to copy the command to your clipboard. A quick “Copied!” tag will confirm it worked.
         </p>
 
-        <!-- Container where JS will render accordions / tables -->
-        <div id="commands-container" class="space-y-4"></div>
+        <div class="overflow-x-auto">
+          <table class="min-w-full text-sm align-middle">
+            <thead class="border-b border-gray-200 dark:border-gray-700 text-left text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
+              <tr>
+                <th class="py-2 pr-4">Command</th>
+                <th class="py-2 pr-4">Description</th>
+                <th class="py-2 pr-4">Category</th>
+                <th class="py-2">Copy</th>
+              </tr>
+            </thead>
+            <tbody id="cpl-table-body" class="divide-y divide-gray-200 dark:divide-gray-700">
+
+              <!-- Each row: data-category used for filtering -->
+
+              <tr class="cpl-row" data-category="Programs">
+                <td class="py-2 pr-4 font-mono text-xs md:text-sm">appwiz.cpl</td>
+                <td class="py-2 pr-4">Programs and Features – uninstall or change installed programs.</td>
+                <td class="py-2 pr-4">Programs</td>
+                <td class="py-2">
+                  <button class="copy-btn inline-flex items-center gap-1 px-2 py-1 rounded bg-blue-600 text-white text-xs">
+                    📋 Copy
+                  </button>
+                  <span class="copied-tag ml-2 text-xs text-emerald-400 hidden">Copied!</span>
+                </td>
+              </tr>
+
+              <tr class="cpl-row" data-category="Networking">
+                <td class="py-2 pr-4 font-mono text-xs md:text-sm">inetcpl.cpl</td>
+                <td class="py-2 pr-4">Internet Options – browser settings, security zones, connections.</td>
+                <td class="py-2 pr-4">Networking</td>
+                <td class="py-2">
+                  <button class="copy-btn inline-flex items-center gap-1 px-2 py-1 rounded bg-blue-600 text-white text-xs">
+                    📋 Copy
+                  </button>
+                  <span class="copied-tag ml-2 text-xs text-emerald-400 hidden">Copied!</span>
+                </td>
+              </tr>
+
+              <tr class="cpl-row" data-category="Networking">
+                <td class="py-2 pr-4 font-mono text-xs md:text-sm">ncpa.cpl</td>
+                <td class="py-2 pr-4">Network Connections – manage network adapters and interfaces.</td>
+                <td class="py-2 pr-4">Networking</td>
+                <td class="py-2">
+                  <button class="copy-btn inline-flex items-center gap-1 px-2 py-1 rounded bg-blue-600 text-white text-xs">
+                    📋 Copy
+                  </button>
+                  <span class="copied-tag ml-2 text-xs text-emerald-400 hidden">Copied!</span>
+                </td>
+              </tr>
+
+              <tr class="cpl-row" data-category="Security">
+                <td class="py-2 pr-4 font-mono text-xs md:text-sm">firewall.cpl</td>
+                <td class="py-2 pr-4">Windows Defender Firewall – inbound/outbound rules and profiles.</td>
+                <td class="py-2 pr-4">Security</td>
+                <td class="py-2">
+                  <button class="copy-btn inline-flex items-center gap-1 px-2 py-1 rounded bg-blue-600 text-white text-xs">
+                    📋 Copy
+                  </button>
+                  <span class="copied-tag ml-2 text-xs text-emerald-400 hidden">Copied!</span>
+                </td>
+              </tr>
+
+              <tr class="cpl-row" data-category="System">
+                <td class="py-2 pr-4 font-mono text-xs md:text-sm">sysdm.cpl</td>
+                <td class="py-2 pr-4">System Properties – computer name, performance, remote, environment vars.</td>
+                <td class="py-2 pr-4">System</td>
+                <td class="py-2">
+                  <button class="copy-btn inline-flex items-center gap-1 px-2 py-1 rounded bg-blue-600 text-white text-xs">
+                    📋 Copy
+                  </button>
+                  <span class="copied-tag ml-2 text-xs text-emerald-400 hidden">Copied!</span>
+                </td>
+              </tr>
+
+              <tr class="cpl-row" data-category="Hardware">
+                <td class="py-2 pr-4 font-mono text-xs md:text-sm">main.cpl</td>
+                <td class="py-2 pr-4">Mouse / Keyboard settings (varies by build; classic hardware controls).</td>
+                <td class="py-2 pr-4">Hardware</td>
+                <td class="py-2">
+                  <button class="copy-btn inline-flex items-center gap-1 px-2 py-1 rounded bg-blue-600 text-white text-xs">
+                    📋 Copy
+                  </button>
+                  <span class="copied-tag ml-2 text-xs text-emerald-400 hidden">Copied!</span>
+                </td>
+              </tr>
+
+              <tr class="cpl-row" data-category="Hardware">
+                <td class="py-2 pr-4 font-mono text-xs md:text-sm">mmsys.cpl</td>
+                <td class="py-2 pr-4">Sound – playback, recording devices, system sounds.</td>
+                <td class="py-2 pr-4">Hardware</td>
+                <td class="py-2">
+                  <button class="copy-btn inline-flex items-center gap-1 px-2 py-1 rounded bg-blue-600 text-white text-xs">
+                    📋 Copy
+                  </button>
+                  <span class="copied-tag ml-2 text-xs text-emerald-400 hidden">Copied!</span>
+                </td>
+              </tr>
+
+              <tr class="cpl-row" data-category="Hardware">
+                <td class="py-2 pr-4 font-mono text-xs md:text-sm">desk.cpl</td>
+                <td class="py-2 pr-4">Display settings – resolution, monitor configuration (classic).</td>
+                <td class="py-2 pr-4">Hardware</td>
+                <td class="py-2">
+                  <button class="copy-btn inline-flex items-center gap-1 px-2 py-1 rounded bg-blue-600 text-white text-xs">
+                    📋 Copy
+                  </button>
+                  <span class="copied-tag ml-2 text-xs text-emerald-400 hidden">Copied!</span>
+                </td>
+              </tr>
+
+              <tr class="cpl-row" data-category="Hardware">
+                <td class="py-2 pr-4 font-mono text-xs md:text-sm">joy.cpl</td>
+                <td class="py-2 pr-4">Game Controllers – joystick and gamepad configuration.</td>
+                <td class="py-2 pr-4">Hardware</td>
+                <td class="py-2">
+                  <button class="copy-btn inline-flex items-center gap-1 px-2 py-1 rounded bg-blue-600 text-white text-xs">
+                    📋 Copy
+                  </button>
+                  <span class="copied-tag ml-2 text-xs text-emerald-400 hidden">Copied!</span>
+                </td>
+              </tr>
+
+              <tr class="cpl-row" data-category="Date & Time">
+                <td class="py-2 pr-4 font-mono text-xs md:text-sm">timedate.cpl</td>
+                <td class="py-2 pr-4">Date and Time – time zone, internet time sync, clock.</td>
+                <td class="py-2 pr-4">Date & Time</td>
+                <td class="py-2">
+                  <button class="copy-btn inline-flex items-center gap-1 px-2 py-1 rounded bg-blue-600 text-white text-xs">
+                    📋 Copy
+                  </button>
+                  <span class="copied-tag ml-2 text-xs text-emerald-400 hidden">Copied!</span>
+                </td>
+              </tr>
+
+              <tr class="cpl-row" data-category="Region & Language">
+                <td class="py-2 pr-4 font-mono text-xs md:text-sm">intl.cpl</td>
+                <td class="py-2 pr-4">Region – formats, location, administrative language settings.</td>
+                <td class="py-2 pr-4">Region & Language</td>
+                <td class="py-2">
+                  <button class="copy-btn inline-flex items-center gap-1 px-2 py-1 rounded bg-blue-600 text-white text-xs">
+                    📋 Copy
+                  </button>
+                  <span class="copied-tag ml-2 text-xs text-emerald-400 hidden">Copied!</span>
+                </td>
+              </tr>
+
+              <tr class="cpl-row" data-category="User Accounts">
+                <td class="py-2 pr-4 font-mono text-xs md:text-sm">nusrmgr.cpl</td>
+                <td class="py-2 pr-4">User Accounts (legacy UI) on some Windows versions.</td>
+                <td class="py-2 pr-4">User Accounts</td>
+                <td class="py-2">
+                  <button class="copy-btn inline-flex items-center gap-1 px-2 py-1 rounded bg-blue-600 text-white text-xs">
+                    📋 Copy
+                  </button>
+                  <span class="copied-tag ml-2 text-xs text-emerald-400 hidden">Copied!</span>
+                </td>
+              </tr>
+
+              <tr class="cpl-row" data-category="Security">
+                <td class="py-2 pr-4 font-mono text-xs md:text-sm">wscui.cpl</td>
+                <td class="py-2 pr-4">Windows Security Center / Action Center (varies by version).</td>
+                <td class="py-2 pr-4">Security</td>
+                <td class="py-2">
+                  <button class="copy-btn inline-flex items-center gap-1 px-2 py-1 rounded bg-blue-600 text-white text-xs">
+                    📋 Copy
+                  </button>
+                  <span class="copied-tag ml-2 text-xs text-emerald-400 hidden">Copied!</span>
+                </td>
+              </tr>
+
+              <!-- MEMCM / EXTRA TOOLS SECTION -->
+              <tr id="memcm" class="cpl-row" data-category="MEMCM">
+                <td class="py-2 pr-4 font-mono text-xs md:text-sm">smscfgrc.cpl</td>
+                <td class="py-2 pr-4">
+                  MEMCM Configuration Manager control panel applet – view client config, site, actions.
+                </td>
+                <td class="py-2 pr-4">MEMCM</td>
+                <td class="py-2">
+                  <button class="copy-btn inline-flex items-center gap-1 px-2 py-1 rounded bg-blue-600 text-white text-xs">
+                    📋 Copy
+                  </button>
+                  <span class="copied-tag ml-2 text-xs text-emerald-400 hidden">Copied!</span>
+                </td>
+              </tr>
+
+              <tr class="cpl-row" data-category="Debug / Tools">
+                <td class="py-2 pr-4 font-mono text-xs md:text-sm">wbemtest</td>
+                <td class="py-2 pr-4">
+                  WMI Tester – interactively query WMI namespaces and classes (useful for MEMCM/WMI troubleshooting).
+                </td>
+                <td class="py-2 pr-4">Debug / Tools</td>
+                <td class="py-2">
+                  <button class="copy-btn inline-flex items-center gap-1 px-2 py-1 rounded bg-blue-600 text-white text-xs">
+                    📋 Copy
+                  </button>
+                  <span class="copied-tag ml-2 text-xs text-emerald-400 hidden">Copied!</span>
+                </td>
+              </tr>
+
+              <tr class="cpl-row" data-category="Debug / Tools">
+                <td class="py-2 pr-4 font-mono text-xs md:text-sm">cmtrace.exe</td>
+                <td class="py-2 pr-4">
+                  Log viewer from MEMCM toolkit – color-coded parsing of client and server logs.
+                </td>
+                <td class="py-2 pr-4">Debug / Tools</td>
+                <td class="py-2">
+                  <button class="copy-btn inline-flex items-center gap-1 px-2 py-1 rounded bg-blue-600 text-white text-xs">
+                    📋 Copy
+                  </button>
+                  <span class="copied-tag ml-2 text-xs text-emerald-400 hidden">Copied!</span>
+                </td>
+              </tr>
+
+              <tr class="cpl-row" data-category="Debug / Tools">
+                <td class="py-2 pr-4 font-mono text-xs md:text-sm">control /name Microsoft.Troubleshooting</td>
+                <td class="py-2 pr-4">
+                  Opens Troubleshooting control panel – common repair wizards and tools.
+                </td>
+                <td class="py-2 pr-4">Debug / Tools</td>
+                <td class="py-2">
+                  <button class="copy-btn inline-flex items-center gap-1 px-2 py-1 rounded bg-blue-600 text-white text-xs">
+                    📋 Copy
+                  </button>
+                  <span class="copied-tag ml-2 text-xs text-emerald-400 hidden">Copied!</span>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
       </section>
 
-      <!-- TIPS & NOTES -->
-      <section id="tips" class="space-y-3">
-        <h2 class="text-2xl font-semibold flex items-center gap-2">
-          🧠 Tips & Notes
-        </h2>
-        <ul class="list-disc list-inside text-gray-700 dark:text-gray-300 space-y-2 text-sm">
-          <li>
-            Some OEMs or 3rd-party tools may install additional <code>.cpl</code> files not listed here.
-          </li>
-          <li>
-            You can also run many of these commands from an elevated Command Prompt or PowerShell.
-          </li>
-          <li>
-            <span class="font-mono">control</span> without arguments opens the classic Control Panel home.
-          </li>
-        </ul>
-      </section>
     </section>
   </main>
 
-  <!-- THEME TOGGLE LOGIC -->
+  <!-- FOOTER -->
+  <footer class="bg-gray-200 dark:bg-gray-800 text-center py-6 mt-6">
+    © 2025 tl docs
+  </footer>
+
+  <!-- THEME TOGGLE LOGIC (same behavior as home) -->
   <script>
     const toggleSwitch = document.getElementById("theme-toggle");
     const htmlEl = document.documentElement;
+
+    // Sync toggle state with current theme
     toggleSwitch.checked = htmlEl.classList.contains("dark");
+
     toggleSwitch.addEventListener("change", () => {
       htmlEl.classList.toggle("dark");
     });
   </script>
 
-  <!-- COMMAND DATA + RENDERING + FILTER/COPY LOGIC -->
+  <!-- CPL SEARCH / FILTER / COPY LOGIC -->
   <script>
-    // Core CPL command data
-    const cplCommands = [
-      // Networking
-      {
-        name: "Network Connections",
-        file: "ncpa.cpl",
-        description: "Manage network adapters and change adapter settings.",
-        category: "Networking"
-      },
-      {
-        name: "Internet Options",
-        file: "inetcpl.cpl",
-        description: "Browser, proxy, and security options for Internet Explorer / legacy stack.",
-        category: "Networking"
-      },
-
-      // Security
-      {
-        name: "Windows Firewall",
-        file: "firewall.cpl",
-        description: "Configure Windows Defender Firewall settings and rules.",
-        category: "Security"
-      },
-      {
-        name: "Security & Maintenance",
-        file: "wscui.cpl",
-        description: "View security status, maintenance messages, and troubleshooting.",
-        category: "Security"
-      },
-
-      // Hardware
-      {
-        name: "Mouse",
-        file: "main.cpl",
-        description: "Adjust mouse buttons, pointer speed, and wheel settings.",
-        category: "Hardware"
-      },
-      {
-        name: "Keyboard",
-        file: "main.cpl @1",
-        description: "Keyboard properties (repeat delay, rate, etc.).",
-        category: "Hardware"
-      },
-      {
-        name: "Sound",
-        file: "mmsys.cpl",
-        description: "Playback, recording, sounds, and communications audio devices.",
-        category: "Hardware"
-      },
-      {
-        name: "Game Controllers",
-        file: "joy.cpl",
-        description: "Configure game controllers and joystick devices.",
-        category: "Hardware"
-      },
-
-      // System
-      {
-        name: "System Properties",
-        file: "sysdm.cpl",
-        description: "System info, performance, remote settings, and system protection.",
-        category: "System"
-      },
-      {
-        name: "Programs and Features",
-        file: "appwiz.cpl",
-        description: "Uninstall or change installed programs.",
-        category: "System"
-      },
-      {
-        name: "Power Options",
-        file: "powercfg.cpl",
-        description: "Manage power plans and sleep / display settings.",
-        category: "System"
-      },
-      {
-        name: "Regional and Language Options",
-        file: "intl.cpl",
-        description: "Change system locale, formats, and keyboard layouts.",
-        category: "System"
-      },
-      {
-        name: "Date and Time",
-        file: "timedate.cpl",
-        description: "Adjust system date, time, and time zone.",
-        category: "System"
-      },
-      {
-        name: "Display Settings (Classic)",
-        file: "desk.cpl",
-        description: "Screen resolution, display settings (legacy).",
-        category: "System"
-      },
-      {
-        name: "ODBC Data Sources",
-        file: "odbccp32.cpl",
-        description: "Manage ODBC data sources (32-bit).",
-        category: "System"
-      },
-
-      // User Accounts
-      {
-        name: "User Accounts (Classic)",
-        file: "nusrmgr.cpl",
-        description: "Legacy user account management (older Windows versions).",
-        category: "User Accounts"
-      },
-
-      // MEMCM
-      {
-        name: "MEMCM Configuration Manager",
-        file: "smscfgrc.cpl",
-        description: "Launch Microsoft Endpoint Configuration Manager (MEMCM) client control panel applet.",
-        category: "MEMCM"
-      },
-
-      // Other / Misc
-      {
-        name: "Phone and Modem Options",
-        file: "telephon.cpl",
-        description: "Configure dialing rules, modems, and telephony settings.",
-        category: "Other"
-      },
-      {
-        name: "Tablet PC Settings",
-        file: "tabletpc.cpl",
-        description: "Pen and touch, tablet buttons, and tablet PC options (where available).",
-        category: "Other"
-      }
-    ];
-
-    const categoriesInOrder = [
-      { key: "Networking", label: "🌐 Networking" },
-      { key: "Security",   label: "🔐 Security" },
-      { key: "Hardware",   label: "🖱️ Hardware" },
-      { key: "System",     label: "⚙️ System" },
-      { key: "User Accounts", label: "👤 User Accounts" },
-      { key: "MEMCM",      label: "📦 MEMCM" },
-      { key: "Other",      label: "🧩 Other / Misc" }
-    ];
-
-    const commandsContainer = document.getElementById("commands-container");
-    const searchInput = document.getElementById("search-input");
-    const categoryFilter = document.getElementById("category-filter");
-
-    // Create accordions (details) per category, expanded by default
-    const categorySections = {};
-
-    function createLayout() {
-      categoriesInOrder.forEach(cat => {
-        const details = document.createElement("details");
-        details.open = true; // expand all accordions by default
-        details.className = "bg-white dark:bg-gray-800 rounded-lg shadow overflow-hidden";
-
-        const summary = document.createElement("summary");
-        summary.className = "cursor-pointer select-none px-4 py-3 flex items-center justify-between text-sm font-semibold text-gray-800 dark:text-gray-100";
-        summary.innerHTML = `<span>${cat.label}</span><span class="text-xs text-gray-500 dark:text-gray-400">Category</span>`;
-
-        const tableWrapper = document.createElement("div");
-        tableWrapper.className = "overflow-x-auto";
-
-        const table = document.createElement("table");
-        table.className = "min-w-full text-sm";
-
-        const thead = document.createElement("thead");
-        thead.innerHTML = `
-          <tr class="bg-gray-100 dark:bg-gray-700 text-left text-xs uppercase tracking-wide text-gray-600 dark:text-gray-200">
-            <th class="px-4 py-2">Command</th>
-            <th class="px-4 py-2">CPL File</th>
-            <th class="px-4 py-2">Description</th>
-            <th class="px-4 py-2 w-24">Copy</th>
-          </tr>
-        `;
-
-        const tbody = document.createElement("tbody");
-        tbody.dataset.categoryKey = cat.key;
-
-        table.appendChild(thead);
-        table.appendChild(tbody);
-        tableWrapper.appendChild(table);
-
-        details.appendChild(summary);
-        details.appendChild(tableWrapper);
-
-        commandsContainer.appendChild(details);
-
-        categorySections[cat.key] = { details, tbody };
-      });
-
-      // Add rows
-      cplCommands.forEach(cmd => {
-        const catSection = categorySections[cmd.category] || categorySections["Other"];
-        const tr = document.createElement("tr");
-        tr.className = "border-t border-gray-200 dark:border-gray-700";
-        tr.dataset.category = cmd.category;
-
-        const fullCommand = `control ${cmd.file}`;
-
-        tr.innerHTML = `
-          <td class="px-4 py-2 align-top font-medium">${cmd.name}</td>
-          <td class="px-4 py-2 align-top font-mono text-xs">${cmd.file}</td>
-          <td class="px-4 py-2 align-top text-gray-700 dark:text-gray-300">${cmd.description}</td>
-          <td class="px-4 py-2 align-top">
-            <button
-              class="copy-btn inline-flex items-center gap-1 text-xs bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded relative"
-              data-command="${fullCommand}"
-            >
-              📋 Copy
-              <span class="copy-tooltip absolute -top-6 left-1/2 -translate-x-1/2 
-                           bg-gray-900 text-white text-[10px] px-2 py-1 rounded opacity-0 pointer-events-none">
-                Copied!
-              </span>
-            </button>
-          </td>
-        `;
-
-        catSection.tbody.appendChild(tr);
-      });
-    }
+    const searchInput = document.getElementById('search-input');
+    const categoryFilter = document.getElementById('category-filter');
+    const rows = Array.from(document.querySelectorAll('.cpl-row'));
 
     function applyFilters() {
-      const searchValue = searchInput.value.trim().toLowerCase();
-      const categoryValue = categoryFilter.value;
+      const term = (searchInput.value || '').toLowerCase();
+      const category = categoryFilter.value;
 
-      // For each category, track if any row is visible, to hide empty sections
-      Object.values(categorySections).forEach(sec => {
-        let visibleCount = 0;
-        const rows = sec.tbody.querySelectorAll("tr");
-        rows.forEach(row => {
-          const rowCategory = row.dataset.category;
-          const textContent = row.innerText.toLowerCase();
+      rows.forEach(row => {
+        const rowText = row.innerText.toLowerCase();
+        const rowCategory = row.getAttribute('data-category') || '';
 
-          let matchesSearch = !searchValue || textContent.includes(searchValue);
-          let matchesCategory = categoryValue === "all" || rowCategory === categoryValue;
+        const matchesSearch = !term || rowText.includes(term);
+        const matchesCategory = !category || rowCategory === category;
 
-          if (matchesSearch && matchesCategory) {
-            row.classList.remove("hidden");
-            visibleCount++;
-          } else {
-            row.classList.add("hidden");
-          }
-        });
-
-        // Hide entire accordion if no visible rows
-        if (visibleCount === 0) {
-          sec.details.classList.add("hidden");
+        if (matchesSearch && matchesCategory) {
+          row.classList.remove('hidden');
         } else {
-          sec.details.classList.remove("hidden");
+          row.classList.add('hidden');
         }
       });
     }
 
-    function initCopyButtons() {
-      const buttons = document.querySelectorAll(".copy-btn");
-      buttons.forEach(btn => {
-        btn.addEventListener("click", async () => {
-          const cmd = btn.dataset.command;
-          const tooltip = btn.querySelector(".copy-tooltip");
-
-          try {
-            await navigator.clipboard.writeText(cmd);
-            if (tooltip) {
-              tooltip.style.opacity = "1";
-              setTimeout(() => {
-                tooltip.style.opacity = "0";
-              }, 900);
-            }
-          } catch (err) {
-            console.error("Clipboard copy failed", err);
-          }
-        });
-      });
+    if (searchInput) {
+      searchInput.addEventListener('input', applyFilters);
+    }
+    if (categoryFilter) {
+      categoryFilter.addEventListener('change', applyFilters);
     }
 
-    // Init on load
-    createLayout();
-    applyFilters();
-    initCopyButtons();
+    // Copy button handling with "Copied!" tag
+    const copyButtons = document.querySelectorAll('.copy-btn');
 
-    // Filter listeners
-    searchInput.addEventListener("input", applyFilters);
-    categoryFilter.addEventListener("change", applyFilters);
+    copyButtons.forEach((btn) => {
+      btn.addEventListener('click', async () => {
+        const row = btn.closest('tr');
+        const commandCell = row.querySelector('td');
+        const textToCopy = commandCell ? commandCell.innerText.trim() : '';
+
+        const copiedTag = row.querySelector('.copied-tag');
+
+        try {
+          if (navigator.clipboard && textToCopy) {
+            await navigator.clipboard.writeText(textToCopy);
+          }
+
+          if (copiedTag) {
+            copiedTag.classList.remove('hidden');
+            setTimeout(() => copiedTag.classList.add('hidden'), 1200);
+          }
+        } catch (e) {
+          // Silently fail; could add fallback if needed
+          if (copiedTag) {
+            copiedTag.textContent = 'Copy failed';
+            copiedTag.classList.remove('hidden');
+            setTimeout(() => copiedTag.classList.add('hidden'), 1500);
+          }
+        }
+      });
+    });
   </script>
 </body>
 </html>

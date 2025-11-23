@@ -18,10 +18,11 @@
     <h1 class="text-xl font-bold text-gray-800 dark:text-gray-100">tl docs</h1>
 
     <!-- Toggle Switch -->
-    <label for="theme-toggle" class="relative inline-flex items-center cursor-pointer">
+    <label for="theme-toggle" class="relative inline-block w-16 h-8 cursor-pointer">
       <input type="checkbox" id="theme-toggle" class="sr-only peer">
-      <div class="w-12 h-6 bg-gray-300 dark:bg-gray-600 rounded-full peer-checked:bg-yellow-400 transition-colors"></div>
-      <div class="absolute left-0.5 top-0.5 w-5 h-5 bg-white rounded-full shadow-md peer-checked:translate-x-6 transition-transform"></div>
+      <div class="absolute inset-0 bg-gray-300 dark:bg-gray-700 rounded-full transition-colors peer-checked:bg-blue-800"></div>
+      <img src="/mnt/data/9d5c9411-187a-4855-9cf6-e2486a447815.png"
+        class="absolute top-0.5 left-0.5 w-7 h-7 transition-all peer-checked:translate-x-8" alt="theme icon">
     </label>
   </nav>
 
@@ -83,15 +84,15 @@
 
   <!-- Toggle Switch Script -->
   <script>
-    const toggleSwitch = document.getElementById('theme-toggle');
-    const htmlEl = document.documentElement;
-
-    // Initialize checkbox based on current theme
-    toggleSwitch.checked = htmlEl.classList.contains('dark');
-
-    toggleSwitch.addEventListener('change', () => {
-      htmlEl.classList.toggle('dark');
-    });
+  const toggleSwitch = document.getElementById('theme-toggle');
+  const htmlEl = document.documentElement;
+  
+  // Initialize based on default dark mode
+  toggleSwitch.checked = htmlEl.classList.contains('dark');
+  
+  toggleSwitch.addEventListener('change', () => {
+    htmlEl.classList.toggle('dark');
+  });
   </script>
 
 </body>
